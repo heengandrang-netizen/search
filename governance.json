@@ -1,0 +1,31 @@
+{
+  "evidence_ingestion": {
+    "stages": [
+      "upload",
+      "hash/deduplicate",
+      "extract text/OCR",
+      "classify authority/document type",
+      "extract dates/IDs",
+      "detect conflicts",
+      "review queue",
+      "approve into searchable evidence"
+    ],
+    "auto_publish": false
+  },
+  "citation_policy": "Material claims should expose saved source/document/page where available; source labels must not be presented as exact page citations when page metadata is absent.",
+  "feedback": [
+    "wrong answer",
+    "outdated",
+    "unclear",
+    "missing proof"
+  ],
+  "backup": [
+    "export local vault + feedback + review queue as JSON",
+    "import backup with duplicate protection"
+  ],
+  "offline": {
+    "core_search": true,
+    "saved_evidence": true,
+    "pdf_image_ocr": "limited until PDF.js/Tesseract runtime assets are locally bundled"
+  }
+}

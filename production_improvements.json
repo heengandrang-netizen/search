@@ -1,0 +1,34 @@
+{
+  "version": "10.8",
+  "implemented": [
+    "prebuilt lightweight fact index for faster repeated searches",
+    "stronger offline navigation fallback",
+    "same-origin runtime caching",
+    "query history retained locally for quick reuse",
+    "source/evidence classification in results",
+    "internet-dependent verification explicitly labelled",
+    "existing 40-question regression suite retained",
+    "reviewed bilingual English/Hindi corpus for major resident/legal intents",
+    "proof/source detail layer with explicit warning when exact page metadata is unavailable",
+    "resident wrong/outdated/missing-proof feedback stored locally",
+    "local vault/feedback/query backup export",
+    "document-ingestion governance: extracted uploads are drafts, not automatically verified facts"
+  ],
+  "major_next_improvements": [
+    {
+      "priority": "High",
+      "item": "Bundle PDF.js and OCR engine locally",
+      "why": "New PDF/image document extraction should work fully offline; current core search is offline but first-use OCR/PDF parsing can require internet."
+    },
+    {
+      "priority": "High",
+      "item": "Admin evidence ingestion pipeline",
+      "why": "Uploaded documents should be parsed, classified, deduplicated, dated and promoted into the searchable KB only after review."
+    },
+    {
+      "priority": "High",
+      "item": "Citation-level answer grounding",
+      "why": "Every material sentence should point to the exact saved document/page/section instead of only a source label."
+    }
+  ]
+}

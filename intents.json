@@ -1,1 +1,207 @@
-{"unit_count": ["total flats", "number flats", "how many flats", "flats kitne", "kitne flat", "total units", "unit count", "कितने फ्लैट", "कुल फ्लैट", "फ्लैट कितने"], "builder": ["builder", "promoter", "developer", "ayaan", "ayan buildtech", "बिल्डर", "प्रमोटर"], "rera": ["rera", "registration", "rera number", "रेरा", "registration number"], "completion": ["completion", "cc", "completion certificate", "occupancy", "oc", "कम्पलीशन", "सीसी", "ओसी"], "handover": ["handover", "rwa handover", "association handover", "हैंडओवर"], "ifms": ["ifms", "maintenance security", "interest free maintenance"], "unsold": ["unsold", "unsold flats", "builder flats", "अनसोल्ड"], "sinking": ["sinking fund", "capital equipment", "repair fund", "corpus"], "case_law": ["supreme court", "high court", "case law", "judgment", "case study", "कोर्ट", "जजमेंट"], "common_area": ["common area", "common areas", "parking", "club", "amenities"], "department_approval": ["fire noc", "environment clearance", "pollution consent", "water noc", "forest clearance", "municipal approval", "jda approval", "electricity noc", "air pollution", "stp consent", "department approval"]}
+{
+  "unit_count": [
+    "total flats",
+    "number flats",
+    "how many flats",
+    "flats kitne",
+    "kitne flat",
+    "total units",
+    "unit count",
+    "कितने फ्लैट",
+    "कुल फ्लैट",
+    "फ्लैट कितने",
+    "kitne flats",
+    "number of flats",
+    "454 flats",
+    "462 flats"
+  ],
+  "builder": [
+    "builder",
+    "promoter",
+    "developer",
+    "ayaan",
+    "ayan buildtech",
+    "बिल्डर",
+    "प्रमोटर"
+  ],
+  "rera": [
+    "rera",
+    "registration",
+    "rera number",
+    "रेरा",
+    "registration number"
+  ],
+  "completion": [
+    "completion",
+    "cc",
+    "completion certificate",
+    "occupancy",
+    "oc",
+    "कम्पलीशन",
+    "सीसी",
+    "ओसी",
+    "completion date",
+    "project complete kab",
+    "rera completion",
+    "extension date"
+  ],
+  "handover": [
+    "handover",
+    "rwa handover",
+    "association handover",
+    "हैंडओवर",
+    "handover deadline",
+    "handover process",
+    "builder handover process",
+    "handover documents",
+    "handover time limit",
+    "rwa ko handover",
+    "builder se handover",
+    "handover kab",
+    "handover time",
+    "handover process kya hai",
+    "common area handover",
+    "documents handover"
+  ],
+  "ifms": [
+    "ifms",
+    "maintenance security",
+    "interest free maintenance",
+    "ifms transfer",
+    "ifms transfer at handover",
+    "transfer ifms",
+    "ifms handover",
+    "ifms ka kya hoga",
+    "ifms builder",
+    "ifms transfer rwa"
+  ],
+  "unsold": [
+    "unsold",
+    "unsold flats",
+    "builder flats",
+    "अनसोल्ड",
+    "unsold maintenance",
+    "unsold flat maintenance",
+    "builder unsold maintenance",
+    "unsold flats ka maintenance",
+    "unsold flat ka maintenance builder",
+    "khali flat maintenance builder"
+  ],
+  "sinking": [
+    "sinking fund",
+    "capital equipment",
+    "repair fund",
+    "corpus",
+    "sinking fund apart from maintenance",
+    "sinking fund maintenance",
+    "capital repair fund",
+    "sinking fund alag",
+    "sinking fund extra",
+    "repair fund extra",
+    "capital equipment fund"
+  ],
+  "case_law": [
+    "supreme court",
+    "high court",
+    "case law",
+    "judgment",
+    "case study",
+    "कोर्ट",
+    "जजमेंट"
+  ],
+  "common_area": [
+    "common area",
+    "common areas",
+    "parking",
+    "club",
+    "amenities"
+  ],
+  "department_approval": [
+    "fire noc",
+    "environment clearance",
+    "pollution consent",
+    "water noc",
+    "forest clearance",
+    "municipal approval",
+    "jda approval",
+    "electricity noc",
+    "air pollution",
+    "stp consent",
+    "department approval",
+    "fire noc status",
+    "ec status",
+    "pollution noc",
+    "stp approval",
+    "water permission",
+    "electricity approval",
+    "jvvnl approval"
+  ],
+  "maintenance": [
+    "maintenance",
+    "maintenance charge",
+    "maintenance charges",
+    "maintainance",
+    "mentanance",
+    "maintenance without oc",
+    "maintenance without cc",
+    "oc ke bina maintenance",
+    "cc ke bina maintenance",
+    "मेंटेनेंस",
+    "रखरखाव",
+    "मेंटेनेंस चार्ज",
+    "builder maintenance oc",
+    "builder maintainance",
+    "oc bina maintenance",
+    "cc oc bina",
+    "maintenance kab se",
+    "maintenance rate"
+  ],
+  "rwa_dissolution": [
+    "rwa dissolve",
+    "rwa dissolution",
+    "dissolve rwa",
+    "society dissolve",
+    "society dissolution",
+    "rwa be dissolved",
+    "आरडब्ल्यूए भंग",
+    "सोसाइटी भंग",
+    "rwa band",
+    "handover nahi hua rwa dissolve",
+    "rwa khatam",
+    "rwa dissolution handover"
+  ],
+  "floors": [
+    "tower floors",
+    "kitne floor",
+    "14 floor",
+    "tower a floor",
+    "tower b floor"
+  ],
+  "rwa": [
+    "rwa registration",
+    "rwa bye laws",
+    "mhmrws registration",
+    "association registration"
+  ],
+  "cc_oc": [
+    "occupancy certificate",
+    "completion certificate",
+    "oc status",
+    "cc status",
+    "cc oc"
+  ],
+  "complaint": [
+    "ayaan buildtech case complaint",
+    "rera complaint",
+    "builder complaint",
+    "ayaan complaint",
+    "case against ayaan"
+  ],
+  "mortgage": [
+    "mortgage",
+    "encumbrance",
+    "bank charge",
+    "loan charge",
+    "charge satisfied"
+  ]
+}

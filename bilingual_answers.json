@@ -1,0 +1,52 @@
+[
+  {
+    "intent": "maintenance",
+    "en": "Maintenance before CC/OC cannot be decided from one fact alone. Check RERA Section 11(4)(d), the registered Agreement for Sale, actual services/possession and the project-specific CC/OC record. Absence of an indexed OC is not proof that no OC exists.",
+    "hi": "CC/OC से पहले maintenance की वैधता केवल एक तथ्य से तय नहीं होती। RERA Section 11(4)(d), registered Agreement for Sale, वास्तविक services/possession और project-specific CC/OC record को साथ में देखना चाहिए। Indexed OC न मिलना यह प्रमाण नहीं है कि OC जारी ही नहीं हुआ।"
+  },
+  {
+    "intent": "unsold",
+    "en": "Under Section 10(3) of the Rajasthan Apartment Ownership Act, 2019, the promoter remains the member for an apartment not yet allotted/transferred and is responsible for the annual maintenance or other charge decided by the Association for that apartment.",
+    "hi": "Rajasthan Apartment Ownership Act, 2019 की Section 10(3) के अनुसार जो apartment अभी allot/transfer नहीं हुआ है, उसके संबंध में promoter member बना रहता है और Association द्वारा तय annual maintenance या अन्य charge के लिए जिम्मेदार रहता है।"
+  },
+  {
+    "intent": "handover",
+    "en": "RERA Sections 11 and 17 govern key promoter-to-association obligations. The handover should be evidence-led: verify CC/OC and sanctioned plans, association authority, common-area/equipment inventory, necessary plans and approvals, conveyance, transferable balances/IFMS where applicable, and a signed takeover record.",
+    "hi": "RERA Sections 11 और 17 promoter से Association/RWA handover की प्रमुख obligations से संबंधित हैं। Handover evidence-based होना चाहिए: CC/OC और sanctioned plans, Association authority, common-area/equipment inventory, आवश्यक plans/approvals, conveyance, लागू होने पर transferable balances/IFMS और signed takeover record verify करें।"
+  },
+  {
+    "intent": "sinking",
+    "en": "A sinking/repair/corpus demand is not automatically valid merely because it is shown separately from maintenance. Check the legal/contractual authority, calculation, purpose, approval/resolution and accounting/transfer treatment.",
+    "hi": "Sinking/repair/corpus fund केवल maintenance से अलग दिखाए जाने भर से स्वतः valid नहीं हो जाता। इसकी legal/contractual authority, calculation, purpose, approval/resolution और accounting/transfer treatment verify करना चाहिए।"
+  },
+  {
+    "intent": "rwa_dissolution",
+    "en": "Non-handover by the builder does not by itself automatically dissolve an RWA/society. Dissolution depends on the entity's registration category, applicable statute, registered bye-laws and prescribed dissolution procedure.",
+    "hi": "Builder द्वारा handover न होने से RWA/society अपने-आप dissolve नहीं हो जाती। Dissolution entity की registration category, applicable statute, registered bye-laws और prescribed dissolution procedure पर निर्भर करती है।"
+  },
+  {
+    "intent": "ifms",
+    "en": "For IFMS, the project-specific registered Agreement for Sale and actual ledger/transfer records control the answer. At handover, verify the IFMS clause, collected amount, deductions if contractually permitted, balance and proof of transfer.",
+    "hi": "IFMS के लिए project-specific registered Agreement for Sale और actual ledger/transfer records सबसे महत्वपूर्ण हैं। Handover पर IFMS clause, collected amount, contractually permitted deductions, balance और transfer proof verify करें।"
+  },
+  {
+    "intent": "unit_count",
+    "en": "The app keeps conflicting unit-count claims separate. Current project/site corroboration supports 454 units, while some third-party historical/current portals report other figures. The authenticated sanctioned inventory/RERA-JDA record should control the final figure.",
+    "hi": "App अलग-अलग unit-count claims को अलग रखती है। Current project/site corroboration 454 units को support करती है, जबकि कुछ third-party historical/current portals अन्य figures बताते हैं। Final figure के लिए authenticated sanctioned inventory/RERA-JDA record को प्राथमिकता दी जानी चाहिए।"
+  },
+  {
+    "intent": "floors",
+    "en": "Do not apply one project-level floor description to every tower. Tower-wise sanctioned/revised plans should control the floor configuration for Towers A-G.",
+    "hi": "एक project-level floor description को सभी towers पर लागू नहीं करना चाहिए। Towers A-G की floor configuration के लिए tower-wise sanctioned/revised plans को प्राथमिकता दी जानी चाहिए।"
+  },
+  {
+    "intent": "cc_oc",
+    "en": "CC/OC status must be established from the competent authority's project-specific record. A portal listing or failure to find a certificate online is not equivalent to an authenticated CC/OC finding.",
+    "hi": "CC/OC status competent authority के project-specific record से establish होना चाहिए। किसी portal listing या online certificate न मिलने को authenticated CC/OC finding नहीं माना जाना चाहिए।"
+  },
+  {
+    "intent": "department_approval",
+    "en": "For Fire, EC, Pollution/STP, water and electricity approvals, the app distinguishes verified records from pending verification. 'Not found online' never means 'not issued'.",
+    "hi": "Fire, EC, Pollution/STP, water और electricity approvals में app verified records और pending verification को अलग दिखाती है। 'Online नहीं मिला' का अर्थ 'जारी नहीं हुआ' नहीं है।"
+  }
+]

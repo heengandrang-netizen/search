@@ -1,0 +1,242 @@
+[
+  {
+    "question": "Can builder charge maintenance without CC/OC?",
+    "expected": "maintenance",
+    "detected": "maintenance",
+    "pass": true
+  },
+  {
+    "question": "Builder maintainance OC bina le sakta hai?",
+    "expected": "maintenance",
+    "detected": "maintenance",
+    "pass": true
+  },
+  {
+    "question": "Maintenance kab se charge hui?",
+    "expected": "maintenance",
+    "detected": "maintenance",
+    "pass": true
+  },
+  {
+    "question": "Can builder charge sinking fund separately?",
+    "expected": "sinking",
+    "detected": "sinking",
+    "pass": true
+  },
+  {
+    "question": "Capital equipment repair fund legal basis?",
+    "expected": "sinking",
+    "detected": "sinking",
+    "pass": true
+  },
+  {
+    "question": "Sinking fund extra kyun?",
+    "expected": "sinking",
+    "detected": "sinking",
+    "pass": true
+  },
+  {
+    "question": "RWA handover deadline from builder",
+    "expected": "handover",
+    "detected": "handover",
+    "pass": true
+  },
+  {
+    "question": "Handover process kya hai",
+    "expected": "handover",
+    "detected": "handover",
+    "pass": true
+  },
+  {
+    "question": "Builder se RWA ko kaunse documents handover honge?",
+    "expected": "handover",
+    "detected": "handover",
+    "pass": true
+  },
+  {
+    "question": "Common area handover ka process",
+    "expected": "handover",
+    "detected": "handover",
+    "pass": true
+  },
+  {
+    "question": "Can RWA be dissolved because handover has not happened?",
+    "expected": "rwa_dissolution",
+    "detected": "rwa_dissolution",
+    "pass": true
+  },
+  {
+    "question": "Handover nahi hua to RWA dissolve ho jayegi?",
+    "expected": "rwa_dissolution",
+    "detected": "rwa_dissolution",
+    "pass": true
+  },
+  {
+    "question": "Does builder pay maintenance for unsold flats?",
+    "expected": "unsold",
+    "detected": "unsold",
+    "pass": true
+  },
+  {
+    "question": "Unsold flats ka maintenance kaun dega?",
+    "expected": "unsold",
+    "detected": "unsold",
+    "pass": true
+  },
+  {
+    "question": "Khali unsold flat maintenance builder dega?",
+    "expected": "unsold",
+    "detected": "unsold",
+    "pass": true
+  },
+  {
+    "question": "IFMS transfer at handover",
+    "expected": "ifms",
+    "detected": "ifms",
+    "pass": true
+  },
+  {
+    "question": "IFMS ka kya hoga?",
+    "expected": "ifms",
+    "detected": "ifms",
+    "pass": true
+  },
+  {
+    "question": "IFMS builder se RWA ko transfer?",
+    "expected": "ifms",
+    "detected": "ifms",
+    "pass": true
+  },
+  {
+    "question": "Total flats kitne hain?",
+    "expected": "unit_count",
+    "detected": "unit_count",
+    "pass": true
+  },
+  {
+    "question": "454 flats ka proof?",
+    "expected": "unit_count",
+    "detected": "unit_count",
+    "pass": true
+  },
+  {
+    "question": "462 ya 454 flats?",
+    "expected": "unit_count",
+    "detected": "unit_count",
+    "pass": true
+  },
+  {
+    "question": "Fire NOC status",
+    "expected": "department_approval",
+    "detected": "department_approval",
+    "pass": true
+  },
+  {
+    "question": "Environment clearance EC status",
+    "expected": "department_approval",
+    "detected": "department_approval",
+    "pass": true
+  },
+  {
+    "question": "Pollution STP approval",
+    "expected": "department_approval",
+    "detected": "department_approval",
+    "pass": true
+  },
+  {
+    "question": "Water permission available?",
+    "expected": "department_approval",
+    "detected": "department_approval",
+    "pass": true
+  },
+  {
+    "question": "JVVNL electricity approval",
+    "expected": "department_approval",
+    "detected": "department_approval",
+    "pass": true
+  },
+  {
+    "question": "Project completion date kya hai?",
+    "expected": "completion",
+    "detected": "completion",
+    "pass": true
+  },
+  {
+    "question": "RERA extension date",
+    "expected": "completion",
+    "detected": "completion",
+    "pass": true
+  },
+  {
+    "question": "Tower floors kitne hain?",
+    "expected": "floors",
+    "detected": "floors",
+    "pass": true
+  },
+  {
+    "question": "Kya sabhi tower 14 floor hain?",
+    "expected": "floors",
+    "detected": "floors",
+    "pass": true
+  },
+  {
+    "question": "Tower A floors",
+    "expected": "floors",
+    "detected": "floors",
+    "pass": true
+  },
+  {
+    "question": "RWA registration status",
+    "expected": "rwa",
+    "detected": "rwa",
+    "pass": true
+  },
+  {
+    "question": "MHMRWS bye laws",
+    "expected": "rwa",
+    "detected": "rwa",
+    "pass": true
+  },
+  {
+    "question": "Occupancy certificate status",
+    "expected": "cc_oc",
+    "detected": "cc_oc",
+    "pass": true
+  },
+  {
+    "question": "CC OC mila hai?",
+    "expected": "cc_oc",
+    "detected": "cc_oc",
+    "pass": true
+  },
+  {
+    "question": "RERA complaint against Ayaan",
+    "expected": "complaint",
+    "detected": "complaint",
+    "pass": true
+  },
+  {
+    "question": "Ayaan Buildtech case complaint",
+    "expected": "complaint",
+    "detected": "complaint",
+    "pass": true
+  },
+  {
+    "question": "Project mortgage status",
+    "expected": "mortgage",
+    "detected": "mortgage",
+    "pass": true
+  },
+  {
+    "question": "Bank charge satisfied?",
+    "expected": "mortgage",
+    "detected": "mortgage",
+    "pass": true
+  },
+  {
+    "question": "Encumbrance release position",
+    "expected": "mortgage",
+    "detected": "mortgage",
+    "pass": true
+  }
+]

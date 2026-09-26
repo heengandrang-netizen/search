@@ -1,0 +1,56 @@
+[
+  {
+    "question": "Can builder charge maintenance without CC/OC?",
+    "detected": "maintenance",
+    "top": "Can a promoter charge maintenance before CC/OC?",
+    "pass": true
+  },
+  {
+    "question": "Can builder charge sinking fund apart from maintenance?",
+    "detected": "sinking",
+    "top": "Can a sinking/repair fund be charged separately from maintenance?",
+    "pass": true
+  },
+  {
+    "question": "RWA handover deadline from builder",
+    "detected": "handover",
+    "top": "General promoter-to-RWA handover obligations and process",
+    "pass": true
+  },
+  {
+    "question": "Can RWA be dissolved because handover has not happened?",
+    "detected": "rwa_dissolution",
+    "top": "Does delayed/non-handover automatically dissolve an RWA?",
+    "pass": true
+  },
+  {
+    "question": "Does builder pay maintenance for unsold flats?",
+    "detected": "unsold",
+    "top": "Who bears maintenance for unsold apartments in Rajasthan?",
+    "pass": true
+  },
+  {
+    "question": "IFMS transfer at handover",
+    "detected": "ifms",
+    "top": "IFMS / maintenance-security transfer at takeover",
+    "pass": true
+  },
+  {
+    "question": "Total flats kitne hain?",
+    "detected": "unit_count",
+    "top": "Total number of flats / units",
+    "pass": true
+  },
+  {
+    "question": "Fire NOC status",
+    "detected": "department_approval",
+    "top": "12 approval / handover evidence categories tracked",
+    "pass": true
+  },
+  {
+    "question": "handover process kya hai",
+    "detected": "handover",
+    "top": "General promoter-to-RWA handover obligations and process",
+    "pass": true
+  }
+]

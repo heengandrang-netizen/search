@@ -1,5 +1,5 @@
 <!doctype html><html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#102c26"><link rel="manifest" href="manifest.webmanifest"><title>MHM SEARCH</title>
+<meta name="theme-color" content="#102c26"><link rel="manifest" href="manifest.webmanifest"><title>MHMRWS Search</title>
 <style>
 :root{--bg:#f3efe6;--paper:#fffdf9;--ink:#17231f;--muted:#6b7570;--g:#173f37;--g2:#266458;--gold:#b28b49;--line:#e4dccf;--soft:#edf3f0;--warn:#fff5d7;--danger:#fff0ec;--shadow:0 16px 44px rgba(27,44,37,.08)}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 90% 0,#e5ece7 0,transparent 30%),var(--bg);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink)}
@@ -65,15 +65,24 @@ details.evidence[open]>summary:after{content:"⌃"}
 .result-lang button{border:1px solid #dadce0;background:#fff;color:#3c4043;padding:6px 11px;border-radius:999px;cursor:pointer}
 .result-lang button.active{background:#e8f0fe;color:#1967d2;border-color:#aecbfa}
 </style>
-</head><body><div class=shell>
-<div class=top><div class=brand><div class=logo>MHM</div><div><div class=eyebrow>Evidence-backed project research</div><h1>MHM SEARCH</h1><div class=sub>Max Heights Majestic • Ayaan Buildtech • Jaipur</div></div></div><div class=actions><button class="btn secondary" id=registryBtn>✓ Evidence Registry</button><button class="btn secondary" id=gatewayBtn>🌐 Research Gateway</button><button class="btn secondary" id=uploadBtn>＋ Add Document</button><button class="btn secondary" id=history>Saved Cases</button></div><input id=fileInput type=file multiple accept=".pdf,.txt,.json,.csv,.md,.html,.htm,.jpg,.jpeg,.png,.webp" style="display:none"></div>
+<style>
+:root{--navy:#082e67;--wine:#9b123d;--blue:#1265b0;--warm:#fffaf1}
+body{background:linear-gradient(180deg,#fffaf1 0,#fff 55%)}
+.brand-home{max-width:1100px;margin:22px auto 8px;text-align:center;padding:10px 16px 0}.brand-lockup{display:flex;align-items:center;justify-content:center;gap:22px}.brand-logo{width:150px;height:150px;object-fit:contain;border-radius:50%;filter:drop-shadow(0 8px 16px rgba(8,46,103,.12))}.brand-name{text-align:left}.brand-name .mhmrws{font-size:clamp(42px,7vw,76px);font-weight:850;letter-spacing:2px;color:var(--navy);line-height:.9}.brand-name .search-script{font-family:'Brush Script MT','Segoe Script','URW Chancery L',cursive;font-size:clamp(42px,6vw,70px);font-weight:500;color:var(--wine);line-height:1.05;margin-left:70px}.brand-sub{font-size:13px;letter-spacing:4px;color:var(--navy);margin-top:12px;text-transform:uppercase}.brand-tag{font-size:14px;color:#244b7b;margin-top:10px}.hero{padding:8px 20px 6px!important}.hero h2,.hero .eyebrow,.hero p{display:none!important}.searchbox{max-width:900px!important}.search{border-radius:34px!important;padding:7px 8px!important;box-shadow:0 5px 20px rgba(8,46,103,.12)!important}.primary{background:linear-gradient(135deg,#1265b0,#082e67)!important}.top{position:relative!important;right:auto!important;top:auto!important;max-width:1100px;margin:0 auto;padding:10px 18px!important}.top .brand{display:none!important}.actions{justify-content:center!important}.quick{max-width:950px;margin:auto}.context{max-width:950px;margin:4px auto!important}.home-tiles{max-width:1180px;margin:14px auto 8px;display:grid;grid-template-columns:repeat(6,1fr);gap:10px;padding:0 18px}.home-tile{border:1px solid #e7dfd3;background:rgba(255,255,255,.88);border-radius:16px;padding:14px 8px;text-align:center;box-shadow:0 4px 14px rgba(8,46,103,.06);cursor:pointer;color:var(--navy);font-weight:700}.home-tile small{display:block;font-weight:500;color:#64748b;margin-top:5px;line-height:1.25}.home-tile:hover{transform:translateY(-1px);box-shadow:0 7px 18px rgba(8,46,103,.1)}
+@media(max-width:820px){.brand-lockup{gap:10px}.brand-logo{width:92px;height:92px}.brand-name .mhmrws{font-size:35px}.brand-name .search-script{font-size:37px;margin-left:28px}.brand-sub{font-size:9px;letter-spacing:2px}.brand-tag{font-size:11px}.home-tiles{grid-template-columns:repeat(2,1fr)}.top{padding-top:4px!important}.actions{overflow:auto;justify-content:flex-start!important}.top .actions button{display:block!important;white-space:nowrap}.brand-home{margin-top:8px}}
+</style><style>
+.health-badge{position:fixed;right:12px;bottom:12px;z-index:9999;background:#fff;border:1px solid #dadce0;border-radius:999px;padding:7px 11px;font-size:11px;box-shadow:0 2px 8px #0002;transition:.4s}
+.health-badge.fade{opacity:.18}.health-badge:hover{opacity:1}
+</style></head><body><div class=shell>
+<div class=brand-home><div class=brand-lockup><img class=brand-logo src="mhmrws-logo.png" alt="MHMRWS logo"><div class=brand-name><div class=mhmrws>MHMRWS</div><div class=search-script>Search</div></div></div><div class=brand-sub>Max Heights Majestic Resident Welfare Society</div><div class=brand-tag>Find Accurate Information • Official Records • Approvals • Documents • Updates</div></div><div class=top><div class=actions><button class="btn secondary" id=registryBtn>✓ Evidence Registry</button><button class="btn secondary" id=gatewayBtn>🌐 Research Gateway</button><button class="btn secondary" id=uploadBtn>＋ Add Document</button><button class="btn secondary" id=history>Saved Cases</button><button class="btn secondary" id=backupBtn>Backup</button></div><input id=fileInput type=file multiple accept=".pdf,.txt,.json,.csv,.md,.html,.htm,.jpg,.jpeg,.png,.webp" style="display:none"></div>
 <section class=hero><div class=eyebrow>Smart Research Assistant</div><h2>One question. One composed answer. Evidence attached.</h2><p>The engine automatically understands the MHM/Ayaan context, combines relevant knowledge with project-PDF evidence, flags contradictions, and tells you what evidence is still missing.</p></section>
 <div class=searchbox><div class=search><input id=q placeholder="Search Max Heights Majestic / मैक्स हाइट्स के बारे में पूछें"><button class="btn secondary icon" id=mic>🎙️</button><button class="btn primary" id=ask>Search</button></div></div>
-<div class=quick id=chips></div><div class=context id=status><span class=dot></span>MHM/Ayaan context active • source routing automatic</div>
-<div id=registryPanel class="card" style="display:none"><span class=badge>Primary Evidence Registry</span><h3>Approval & handover coverage</h3><div id=registryList></div></div><div id=gatewayPanel class="card" style="display:none"><span class=badge>External Research Gateway</span><h3>Official portals + Google-style site search</h3><p class=sub>अगर app को कोई record direct नहीं मिलता, यहाँ से उसी MHM/Ayaan context में संबंधित official portal या targeted search खोलें।</p><div id=gatewayList></div></div><div id=uploadPanel class="card" style="display:none"><span class=badge>Local Document Vault</span><h3>Uploaded documents</h3><div id=uploadList></div><div class=source>Files are processed locally in your browser. Text PDFs are extracted page-by-page; JPG/PNG/WEBP and image-like documents can be OCR-read. The app then classifies the document, extracts dates/numbers/authorities and indexes the result for Smart Search. Uploaded knowledge stays in this browser's IndexedDB unless you export it.</div></div><div class=layout><main id=results><div class=empty>Ask in English, हिन्दी, or Hinglish. जवाब उसी भाषा में मिलेगा।</div></main>
+<div class=quick id=chips></div><div class=context id=status><span class=dot></span>MHM/Ayaan context active • source routing automatic</div><div class=home-tiles>
+<div class=home-tile data-q="RERA registration approvals extensions project updates">📄<br>RERA<small>Registration, approvals, extensions</small></div><div class=home-tile data-q="JDA sanctioned plans land use layout zoning">🏛️<br>JDA<small>Plans, land use, approvals</small></div><div class=home-tile data-q="Fire NOC environment pollution STP water electricity clearances">✅<br>NOC & Clearances<small>Fire, EC, pollution, utilities</small></div><div class=home-tile data-q="project towers floors units 454 flats amenities">🏢<br>Project Details<small>Towers, units, inventory</small></div><div class=home-tile data-q="Ayaan Buildtech company charges financial history">🏙️<br>Ayaan Buildtech<small>Company, charges, history</small></div><div class=home-tile data-q="legal court cases orders complaints RERA">⚖️<br>Legal & Court<small>Cases, orders, complaints</small></div><div class=home-tile data-q="RWA handover common areas conveyance IFMS">👥<br>RWA & Handover<small>Society, handover, common areas</small></div><div class=home-tile id=homeDocs>🗂️<br>Documents<small>Upload and local evidence</small></div><div class=home-tile data-q="site evidence maintenance 454 flats amenities">🖼️<br>Site Evidence<small>Photos and notices</small></div><div class=home-tile data-q="conflicts contradictions comparison expected actual">📊<br>Comparisons<small>Conflicts & analysis</small></div><div class=home-tile id=latestTile>🔔<br>Latest Updates<small>Evidence monitoring</small></div><div class=home-tile id=smartTile>✨<br>Smart Answer<small>Evidence-backed summary</small></div></div>
+<div id=registryPanel class="card" style="display:none"><span class=badge>Primary Evidence Registry</span><h3>Approval & handover coverage</h3><div id=registryList></div></div><div id=gatewayPanel class="card" style="display:none"><span class=badge>External Research Gateway</span><h3>Official portals + Google-style site search</h3><p class=sub>अगर app को कोई record direct नहीं मिलता, यहाँ से उसी MHM/Ayaan context में संबंधित official portal या targeted search खोलें।</p><div id=gatewayList></div></div><div id=uploadPanel class="card" style="display:none"><span class=badge>Local Document Vault</span><h3>Uploaded documents</h3><div id=uploadList></div><div class=source>Files are processed locally in your browser. Text PDFs are extracted page-by-page; JPG/PNG/WEBP can be OCR-read when the OCR engine is available (first OCR use requires internet). The app then classifies the document, extracts dates/numbers/authorities and creates a local searchable draft for review; uploaded evidence is not treated as an official/verified fact merely because it was extracted. Uploaded knowledge stays in this browser's IndexedDB unless you export it.</div></div><div class=layout><main id=results><div class=empty>Ask in English, हिन्दी, or Hinglish. जवाब उसी भाषा में मिलेगा।</div></main>
 <aside class=side><div class=card><h4>Research engine</h4><div class=metric><span>Context</span><strong>Automatic</strong></div><div class=metric><span>Semantic search</span><strong>On-device</strong></div><div class=metric><span>PDF evidence</span><strong>276+ pages</strong></div><div class=metric><span>Contradiction check</span><strong>Enabled</strong></div><div class=metric><span>Missing evidence</span><strong>Enabled</strong></div><div class=metric><span>Reports</span><strong>PDF/Print</strong></div><div class=sideNote>Priority: project/RERA evidence → official law/court material → official web verification. The app does not silently resolve conflicting evidence.</div></div><div class=card><h4>Recent saved cases</h4><div id=savedMini class=muted>None yet</div></div></aside></div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs" type="module">
+<script>
 const GENERAL_GUIDES=[
  {keys:["handover","hand over","takeover","rwa handover","हैंडओवर","हस्तांतरण"],en:{title:"General RWA / project handover process",steps:["Verify the applicable Completion/Occupancy Certificate (CC/OC) and sanctioned/revised plans.","Confirm valid Association/RWA/AOA formation and authorised representatives.","Prepare a joint inventory of common areas, lifts, fire systems, STP, water/electrical systems, parking/common facilities, keys, warranties/AMCs and pending defects.","Complete the applicable registered conveyance/title transfer under RERA Section 17 and local law.","Obtain necessary plans, approvals, title/insurance and project records. Where local law does not provide otherwise, RERA Section 17 provides a 30-day framework after OC for necessary documents/plans including common areas, and three months from OC for conveyance.","Reconcile applicable utility balances, transferable maintenance corpus/IFMS, vendor contracts and cut-off accounts where supported by law/documents.","Conduct joint physical inspection, prepare snag/pending-work list and sign a dated handover/takeover record with annexures.","After takeover, update signatories/vendors/utilities and track unresolved promoter obligations."],note:"General framework only. MHM-specific status is shown separately from MHM RERA/JDA/uploaded evidence."},hi:{title:"सामान्य RWA / प्रोजेक्ट हैंडओवर प्रक्रिया",steps:["लागू Completion/Occupancy Certificate (CC/OC) और sanctioned/revised plans verify करें।","Association/RWA/AOA की valid formation और authorised representatives verify करें।","Common areas, lifts, fire system, STP, water/electric systems, parking, keys, warranties/AMCs और pending defects की joint inventory बनाएं।","RERA Section 17 और local law के अनुसार applicable registered conveyance/title transfer पूरा करें।","Necessary plans, approvals, title/insurance और project records लें। जहाँ local law अलग समय न दे, RERA Section 17 में OC के बाद documents/plans including common areas के लिए 30 दिन और conveyance के लिए 3 महीने का framework है।","जहाँ law/documents support करें, utility balances, transferable maintenance corpus/IFMS, vendor contracts और cut-off accounts reconcile करें।","Joint physical inspection, snag/pending-work list और annexures सहित dated handover/takeover record बनाएं।","Takeover के बाद signatories/vendors/utilities update करें और unresolved promoter obligations track करें।"],note:"यह general framework है; MHM-specific status अलग evidence से दिखाया जाएगा।"}},
  {keys:["fire noc","fire","फायर"],en:{title:"General Fire-NOC verification",steps:["Identify the competent fire/local authority.","Obtain the issued Fire NOC and renewals/amendments.","Match project/tower, address, sanctioned height/floors and validity.","Check inspection/compliance conditions and pending renewals."],note:"A fire-fighting system is not proof of a valid Fire NOC."},hi:{title:"सामान्य Fire NOC verification",steps:["Competent fire/local authority पहचानें।","Issued Fire NOC और renewals/amendments लें।","Project/tower, address, sanctioned height/floors और validity match करें।","Inspection/compliance conditions और pending renewal जाँचें।"],note:"Fire-fighting system valid Fire NOC का प्रमाण नहीं है।"}},
@@ -138,17 +147,30 @@ function smartSuggestions(raw,hi){
  if(n.includes("fire"))return hi?["Fire NOC मिला?","Renewal कैसे verify करें?"]:["Is Fire NOC available?","How to verify renewal?"];
  return hi?["RERA registration क्या है?","454 flats का proof?","Builder handover status?"]:["What is the RERA registration?","Proof of 454 flats?","Builder handover status?"];
 }
-document.addEventListener("click",e=>{if(e.target.classList?.contains("smartq")){q.value=e.target.textContent;ask()}});
+document.addEventListener("click",e=>{if(e.target.classList?.contains("smartq")){q.value=e.target.textContent;render()}});
 function towerPanel(raw){
  if(!/(tower|टावर|block|ब्लॉक)/i.test(raw))return "";
  return `<details class="evidence"><summary><b>🏢 Tower Intelligence A–G</b></summary><div class=towergrid>
  ${Object.entries({"A":"84 flats • 1925 sq.ft","B":"84 flats • 1925 sq.ft","C":"56 flats • 1725 sq.ft","D":"56 flats • 1725 sq.ft","E":"70 flats • 1450/1225 sq.ft","F":"56 flats • 1225 sq.ft","G":"48 flats • 1225 sq.ft"}).map(([k,v])=>`<div><b>Tower ${k}</b><br>${v}<br><small>Sanctioned floors: verification pending from exact RERA plan</small></div>`).join("")}
  </div></details>`;
 }
+
+function addProductionTrustLayer(){
+ let r=$("#results");if(!r||!q.value.trim()||r.querySelector(".prod-trust"))return;
+ let it=detectIntent(q.value),txt=reviewedAnswer(it,ANSWER_LANG==="hi"?"hi":"en");
+ let top=(KB?.facts||[]).map(f=>[fscore(f,q.value,it),f]).sort((a,b)=>b[0]-a[0])[0]?.[1];
+ let box=document.createElement("section");box.className="card prod-trust";
+ box.innerHTML=`<span class=badge>Reviewed answer layer</span>${txt?`<p>${esc(txt)}</p>`:"<p>No reviewed bilingual summary exists for this intent yet; the evidence-ranked result above remains primary.</p>"}${exactEvidenceBlock(top)}${feedbackBar(q.value)}`;
+ r.appendChild(box);
+}
+
 function enhanceSmartResult(){
- let r=$("#results");if(!r||!q.value.trim())return;
+ let r=$("#results");if(!r||!q.value.trim()||r.dataset.enhancing==="1")return;
+ r.dataset.enhancing="1";
  if(!r.querySelector(".smart-answer"))r.insertAdjacentHTML("afterbegin",universalSmartPanel());
  if(!r.querySelector(".towergrid"))r.insertAdjacentHTML("beforeend",towerPanel(q.value));
+ addProductionTrustLayer();
+ r.dataset.enhancing="0";
 }
 
 const _smartObs=new MutationObserver(()=>{clearTimeout(window._smartT);window._smartT=setTimeout(enhanceSmartResult,120)});
@@ -193,13 +215,13 @@ function markTranslatable(){
 function ensureResultToggle(){
  let r=$("#results");if(!r||!q.value.trim())return;
  let bar=$("#resultLang");
- if(!bar){bar=document.createElement("div");bar.id="resultLang";bar.className="result-lang";bar.innerHTML=`<span>Result:</span><button data-lang="en">English</button><button data-lang="hi">हिन्दी</button>`;r.parentNode.insertBefore(bar,r)}
+ if(!bar){bar=document.createElement("div");bar.id="resultLang";bar.className="result-lang";bar.innerHTML=`<span>Answer UI:</span><button data-lang="en">English</button><button data-lang="hi">हिन्दी</button>`;r.parentNode.insertBefore(bar,r)}
  bar.style.display="flex";
  bar.querySelectorAll("button").forEach(b=>b.onclick=()=>{markTranslatable();applyResultLanguage(b.dataset.lang)});
 }
 
 const _langObs=new MutationObserver(()=>{clearTimeout(window._langT);window._langT=setTimeout(()=>{ensureResultToggle();markTranslatable()},140)});
-document.addEventListener("DOMContentLoaded",()=>{let r=$("#results");if(r)_langObs.observe(r,{childList:true,subtree:true})});
+document.addEventListener("DOMContentLoaded",()=>{let r=$("#results");if(r)_langObs.observe(r,{childList:true,subtree:false})});
 </script><script>
 let KB={facts:[],synonyms:{}},DOCS=[],INTENTS={},CONCEPTS={},REQ={},CONFLICTS=[];const $=s=>document.querySelector(s),q=$("#q");
 function N(s){s=(s||"").toLowerCase();for(const[a,b]of Object.entries(KB.synonyms||{}))s=s.split(a).join(b);return s.normalize("NFKD").replace(/[^\p{L}\p{N}\s./:-]/gu," ").replace(/\s+/g," ").trim()}
@@ -207,11 +229,11 @@ function grams(s,n=3){s=N(s).replace(/\s/g,"_");let a=[];for(let i=0;i<=s.length
 function jac(a,b){let A=grams(a),B=grams(b),i=0;for(let x of A)if(B.has(x))i++;return i/Math.max(1,A.size+B.size-i)}
 function lev(a,b){let m=[...Array(b.length+1).keys()];for(let i=1;i<=a.length;i++){let p=m[0];m[0]=i;for(let j=1;j<=b.length;j++){let t=m[j];m[j]=Math.min(m[j]+1,m[j-1]+1,p+(a[i-1]==b[j-1]?0:1));p=t}}return m[b.length]}
 function expand(s){let n=N(s),o=new Set(n.split(" ").filter(Boolean));for(const[c,a]of Object.entries(CONCEPTS))if(n.includes(c)||a.some(x=>n.includes(N(x))))a.forEach(x=>N(x).split(" ").forEach(y=>o.add(y)));return[...o]}
-function detectIntent(s){let n=N(s),best=["general",0];for(const[k,a]of Object.entries(INTENTS))for(const p of a){let pn=N(p),sc=n.includes(pn)?1:jac(n,pn);if(sc>best[1])best=[k,sc]}return best[1]>.18?best[0]:"general"}
-function fscore(f,s,it){let h=N([f.title,f.section,f.subsection,...(f.tags||[]),...(f.points||[])].join(" ")),z=jac(s,h)*16;for(const t of expand(s)){if(h.includes(t))z+=4;else if(t.length>4){let d=99;for(const w of h.split(" ").slice(0,650))d=Math.min(d,lev(t,w));if(d<=1)z+=1.6}}if(f.intent===it)z+=45;if((f.priority||0)>0)z+=f.priority/6;if((f.confidence||"").includes("Project document"))z+=5;return z}
+function detectIntent(s){let n=N(s),best=["general",0,0];for(const[k,a]of Object.entries(INTENTS))for(const p of a){let pn=N(p),exact=n.includes(pn),sc=exact?(1+Math.min(.45,pn.length/80)):jac(n,pn);if(sc>best[1]||(sc===best[1]&&pn.length>best[2]))best=[k,sc,pn.length]}return best[1]>.18?best[0]:"general"}
+function fscore(f,s,it){let h=(FAST_INDEX.find(x=>x.f===f)?.text)||N([f.title,f.section,f.subsection,...(f.tags||[]),...(f.points||[])].join(" ")),z=jac(s,h)*16;for(const t of expand(s)){if(h.includes(t))z+=4;else if(t.length>4){let d=99;for(const w of h.split(" ").slice(0,650))d=Math.min(d,lev(t,w));if(d<=1)z+=1.6}}if(f.intent===it)z+=45;if((f.priority||0)>0)z+=f.priority/6;if((f.confidence||"").includes("Project document"))z+=5;return z}
 function dscore(d,s){let h=N(d.text),z=jac(s,h)*8;for(const t of expand(s))if(t.length>2&&h.includes(t))z+=2.3;return z}
 function compose(cards){let pts=[];for(const f of cards)for(const p of f.points||[])if(!pts.some(x=>N(x)===N(p)))pts.push(p);return pts.slice(0,6)}
-function conflictFor(raw,it){let n=N(rawSearch),out=[];for(const c of CONFLICTS)if(c.topic===it||c.terms.some(t=>n.includes(N(t))))out.push(c.message);return [...new Set(out)]}
+function conflictFor(raw,it){let n=N(expandBi(raw)),out=[];for(const c of CONFLICTS)if(c.topic===it||c.terms.some(t=>n.includes(N(t))))out.push(c.message);return [...new Set(out)]}
 function missing(it,docs){let req=REQ[it]||[],hay=N(docs.map(x=>x.text).join(" "));return req.filter(r=>!N(r).split(" ").some(w=>w.length>5&&hay.includes(w)))}
 
 let ANSWER_LANG="auto";
@@ -233,19 +255,119 @@ function saveCase(raw,html){let a=JSON.parse(localStorage.getItem("mhmSaved")||"
 function refreshSaved(){let a=JSON.parse(localStorage.getItem("mhmSaved")||"[]");$("#savedMini").innerHTML=a.length?a.slice(0,5).map((x,i)=>`<div class=saved onclick="q.value=${JSON.stringify(x.q)};render()">${x.q}</div>`).join(""):"None yet"}
 function report(raw,content){let w=open("","_blank");w.document.write(`<title>MHM Research Report</title><style>body{font-family:Arial;padding:38px;line-height:1.55}article{break-inside:avoid}small{color:#666}</style><h1>MHM Evidence Research Report</h1><p><b>Question:</b> ${raw}</p>${content}<hr><small>Research aid. Verify exact current law/order and project-specific originals before legal reliance.</small><script>onload=()=>print()<\/script>`);w.document.close()}
 function online(raw){let x=encodeURIComponent(raw+" Max Heights Majestic Ayaan Buildtech"),a=[["Rajasthan RERA",`https://www.google.com/search?q=site%3Arera.rajasthan.gov.in+${x}`],["Rajasthan High Court",`https://www.google.com/search?q=site%3Ahcraj.nic.in+${x}`],["Supreme Court",`https://www.google.com/search?q=site%3Asci.gov.in+${x}`],["Rajasthan Govt/JDA",`https://www.google.com/search?q=site%3Arajasthan.gov.in+${x}`]];return a.map(v=>`<a target=_blank rel=noopener href="${v[1]}"><button class="btn secondary">${v[0]}</button></a>`).join("")}
-function render(){let raw=q.value.trim(),rawSearch=expandBi(raw);if(!raw)return;let it=detectIntent(raw),fa=KB.facts.map(f=>[fscore(f,raw,it),f]).sort((a,b)=>b[0]-a[0]),cards=fa.slice(0,4).map(x=>x[1]),best=cards[0],pts=compose(cards),ds=DOCS.map(d=>[dscore(d,raw),d]).filter(x=>x[0]>1.7).sort((a,b)=>b[0]-a[0]).slice(0,5).map(x=>x[1]),conf=conflictFor(raw,it),miss=missing(it,ds);
+
+function renderLatestUpdates(){
+ $("#results").innerHTML=`<article class="card answer"><span class=badge>Monitoring</span><h3>MHM Deep Evidence Watch</h3>
+ <div class=short>Continuous evidence monitoring is configured for RERA, JDA, Fire, Environment, Pollution/STP, Water, JVVNL, title/encumbrance, court records, RWA/handover and tower-wise sanctioned evidence.</div>
+ <details class=evidence><summary><b>What is monitored</b></summary><p>New official records, changed status, renewals, newly indexed attachments, material contradictions and corrections. Duplicate and low-value listings are suppressed.</p></details>
+ <p class=source>The monitoring specification is included in deep_monitoring.json. The external ChatGPT monitoring task runs separately from this offline app.</p></article>`;
+ $("#results").scrollIntoView({behavior:"smooth"});
+}
+function renderSmartOverview(){q.value="Max Heights Majestic Ayaan Buildtech RERA project key facts handover approvals 454 flats";render()}
+
+
+function runBootDiagnostics(){
+ const issues=[];
+ if(!KB?.facts?.length)issues.push("Knowledge base");
+ if(!DOCS?.length)issues.push("Document index");
+ if(!Object.keys(INTENTS||{}).length)issues.push("Intent engine");
+ if(!GATEWAYS?.length)issues.push("Official gateways");
+ const badge=document.createElement("div");badge.id="healthBadge";badge.className="health-badge";
+ badge.textContent=issues.length?"⚠ Search data issue":("✓ Search ready • "+(navigator.onLine?"online":"offline"));
+ badge.title=issues.length?("Missing: "+issues.join(", ")):"Core search data loaded • 40-question regression suite included";
+ document.body.appendChild(badge);
+ const updateNet=()=>{if(!issues.length)badge.textContent="✓ Search ready • "+(navigator.onLine?"online":"offline")};
+ addEventListener("online",updateNet);addEventListener("offline",updateNet);
+ setTimeout(()=>badge.classList.add("fade"),3500);
+}
+
+
+let FAST_INDEX=[];
+function buildFastIndex(){
+ FAST_INDEX=(KB?.facts||[]).map(f=>({f,text:N([f.title,f.section,f.subsection,...(f.tags||[]),...(f.points||[])].join(" "))}));
+}
+
+
+function sourceClass(f){
+ const a=N((f?.authority||"")+" "+(f?.source||"")+" "+(f?.confidence||""));
+ if(/official|statute|rera|jda|government|gazette/.test(a))return "Primary / official framework";
+ if(/project document|site evidence/.test(a))return "Project / site evidence";
+ if(/secondary|portal|listing|corrobor/.test(a))return "Secondary corroboration";
+ return "Reference evidence";
+}
+
+
+function saveQueryHistory(qv){
+ if(!qv)return;qv=String(qv).slice(0,500);let h=[];try{h=JSON.parse(localStorage.getItem("mhm_query_history")||"[]")}catch(e){}
+ h=[qv,...h.filter(x=>N(x)!==N(qv))].slice(0,12);localStorage.setItem("mhm_query_history",JSON.stringify(h));
+}
+
+
+function reviewedAnswer(intent,lang){
+ const a=(window.BILINGUAL||[]).find(x=>x.intent===intent);
+ return a?(lang==="hi"?a.hi:a.en):"";
+}
+function exactEvidenceBlock(f){
+ if(!f)return "";
+ let src=esc(f.source||"Source not specified"),auth=esc(f.authority||"");
+ let page=f.page||f.pages||f.page_label||f.source_page||"";
+ return `<details class=evidence><summary><b>Proof / source details</b></summary>
+ <p><b>Source:</b> ${src}</p>${auth?`<p><b>Authority:</b> ${auth}</p>`:""}${page?`<p><b>Page/record:</b> ${esc(page)}</p>`:`<p class=source>Exact page metadata is not stored for this fact; source-level evidence only.</p>`}</details>`;
+}
+function saveFeedback(kind,query){
+ let a=[];try{a=JSON.parse(localStorage.getItem("mhm_feedback")||"[]")}catch(e){}
+ a.unshift({kind,query,date:new Date().toISOString(),version:"10.8"});localStorage.setItem("mhm_feedback",JSON.stringify(a.slice(0,200)));
+ alert("Feedback saved on this device.");
+}
+function feedbackBar(raw){return `<div class=actions><button class="btn secondary" onclick='saveFeedback("wrong",${JSON.stringify(raw)})'>⚑ Wrong answer</button><button class="btn secondary" onclick='saveFeedback("outdated",${JSON.stringify(raw)})'>↻ Outdated</button><button class="btn secondary" onclick='saveFeedback("missing-proof",${JSON.stringify(raw)})'>⌕ Missing proof</button></div>`}
+async function exportLocalData(){
+ let vault=await vaultAll(),obj={exported:new Date().toISOString(),version:"10.8",vault,feedback:JSON.parse(localStorage.getItem("mhm_feedback")||"[]"),queries:JSON.parse(localStorage.getItem("mhm_query_history")||"[]")};
+ let blob=new Blob([JSON.stringify(obj,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="MHMRWS-Search-Local-Backup.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+
+
+const ADMIN_UPLOAD_PIN_HASH="2908344f70e25cb3671a3991eef59405b321ce6bddbd7b9079a4947caa558b13";
+let uploadAuthUntil=0;
+async function sha256Text(v){
+ const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(v));
+ return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("");
+}
+async function authorizeUpload(){
+ if(Date.now()<uploadAuthUntil)return true;
+ const pin=prompt("Admin PIN required to upload documents");
+ if(pin===null)return false;
+ if(await sha256Text(pin)!==ADMIN_UPLOAD_PIN_HASH){alert("Incorrect PIN.");return false;}
+ uploadAuthUntil=Date.now()+5*60*1000;
+ return true;
+}
+async function openProtectedUpload(){
+ if(!(await authorizeUpload()))return;
+ const input=document.getElementById("fileInput");input.value="";
+ const expireUnused=()=>setTimeout(()=>{if(!input.files||!input.files.length)uploadAuthUntil=0;},400);
+ window.addEventListener("focus",expireUnused,{once:true});
+ input.click();
+}
+
+function render(){let raw=q.value.trim(),rawSearch=expandBi(raw);if(!raw)return;saveQueryHistory(raw);
+if(!KB?.facts?.length||!DOCS?.length||!Object.keys(INTENTS||{}).length){$("#results").innerHTML='<div class="card"><b>Search engine is loading…</b><p>Please try again in a moment.</p></div>';return;}let it=detectIntent(raw),fa=KB.facts.map(f=>[fscore(f,raw,it),f]).sort((a,b)=>b[0]-a[0]);
+if(!fa.length){$("#results").innerHTML='<article class="card"><h3>No local match</h3><p>Try another wording or use the official-source gateways.</p></article>';return;}
+if(!fa[0]||fa[0][0]<10){$("#results").innerHTML='<article class="card warn"><h3>No reliable local answer yet</h3><p>The offline evidence base does not have a sufficiently relevant answer for this wording. Try another wording or use Official Web Verification (internet).</p><div class=actions>'+online(raw)+'</div></article>';return;}
+let cards=fa.slice(0,4).map(x=>x[1]),best=cards[0],pts=compose(cards),ds=DOCS.map(d=>[dscore(d,raw),d]).filter(x=>x[0]>1.7).sort((a,b)=>b[0]-a[0]).slice(0,5).map(x=>x[1]),conf=conflictFor(raw,it),miss=missing(it,ds);
 $("#status").innerHTML=`<span class=dot></span>Understood: <b>${it.replaceAll("_"," ")}</b> • MHM/Ayaan context • evidence selected automatically`;
 let short=pts.slice(0,2).join(" ");
 let answer=`<article class="card answer"><span class=badge>Composed Answer</span><h3>${best.title}</h3><div class=short>${short}</div><ul class=detail>${pts.slice(2).map((p,i)=>`<li>${p}${ds[i]?` <span class=cite>${ds[i].file} · p.${ds[i].page}</span>`:""}</li>`).join("")}</ul><div class=source><b>Primary source:</b> ${best.authority} • ${best.confidence}<br>${best.source}</div><div class=actions><button class="btn secondary" onclick='speak(${JSON.stringify(best.title+". "+pts.join(". "))})'>🔊 सुनें</button><button class="btn secondary" id=saveBtn>★ Save Case</button><button class="btn secondary" id=pdfBtn>📄 Report</button></div></article>`;
 if(conf.length)answer+=`<article class="card danger"><span class=badge>Contradiction Check</span><h3>Evidence caution</h3><ul>${conf.map(x=>`<li>${x}</li>`).join("")}</ul></article>`;
 if(ds.length)answer+=`<article class=card><span class=badge>Page-level Evidence</span><h3>Supporting project records</h3>${ds.map(d=>`<div class=evidence><b>${d.file} • Page ${d.page}</b><p>${d.text.slice(0,520)}</p></div>`).join("")}</article>`;
 if(miss.length)answer+=`<article class="card warn"><span class=badge>Missing Evidence Detector</span><h3>For a more definitive project-specific answer</h3><ul>${miss.map(x=>`<li>${x}</li>`).join("")}</ul></article>`;
-if(fa[0][0]<18||best.confidence?.includes("verification required"))answer+=`<article class=card><span class=badge>Official Web Verification</span><h3>Automatic fallback</h3><p>Local evidence is not definitive. Relevant official-source searches:</p><div class=actions>${online(raw)}</div></article>`;
+if(fa[0][0]<18||best.confidence?.includes("verification required"))answer+=`<article class=card><span class=badge>Official Web Verification (internet)</span><h3>Automatic fallback</h3><p>Local evidence is not definitive. Relevant official-source searches:</p><div class=actions>${online(raw)}</div></article>`;
 $("#results").innerHTML=answer;let printable=$("#results").innerHTML;$("#saveBtn").onclick=()=>saveCase(raw,printable);$("#pdfBtn").onclick=()=>report(raw,printable)}
 $("#ask").onclick=render;q.addEventListener("keydown",e=>{if(e.key==="Enter")render()});
 $("#mic").onclick=()=>{let R=window.SpeechRecognition||window.webkitSpeechRecognition;if(!R)return alert("Voice recognition इस browser में उपलब्ध नहीं है.");let r=new R();r.lang=ANSWER_LANG==="en"?"en-IN":"hi-IN";r.onresult=e=>{q.value=e.results[0][0].transcript;render()};r.start()}
 $("#history").onclick=()=>{let a=JSON.parse(localStorage.getItem("mhmSaved")||"[]");if(!a.length)return alert("No saved cases yet.");q.value=a[0].q;render()}
-Promise.all([fetch("kb.json").then(r=>r.json()),fetch("documents.json").then(r=>r.json()),fetch("intents.json").then(r=>r.json()),fetch("concepts.json").then(r=>r.json()),fetch("requirements.json").then(r=>r.json()),fetch("conflicts.json").then(r=>r.json()),fetch("gateways.json").then(r=>r.json()),fetch("approval_registry.json").then(r=>r.json())]).then(([k,d,i,c,r,cf,gw,reg])=>{KB=k;DOCS=d;INTENTS=i;CONCEPTS=c;REQ=r;CONFLICTS=cf;window.GW=gw;window.REG=reg;let qs=["Total flats kitne hain?","Builder handover rule","CC/OC status","Fire NOC","Environment clearance","Pollution consent","Water approval","JDA approval","Unsold flats maintenance","IFMS transfer","Sinking fund"];$("#chips").innerHTML=qs.map(x=>`<span class=chip>${x}</span>`).join("");document.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{q.value=c.textContent;render()});refreshSaved()});
+Promise.all([fetch("kb.json").then(r=>r.json()),fetch("documents.json").then(r=>r.json()),fetch("intents.json").then(r=>r.json()),fetch("concepts.json").then(r=>r.json()),fetch("requirements.json").then(r=>r.json()),fetch("conflicts.json").then(r=>r.json()),fetch("gateways.json").then(r=>r.json()),fetch("approval_registry.json").then(r=>r.json()),fetch("bilingual_answers.json").then(r=>r.json())]).then(([k,d,i,c,r,cf,gw,reg,ba])=>{KB=k;DOCS=d;INTENTS=i;CONCEPTS=c;REQ=r;CONFLICTS=cf;window.GW=gw;window.REG=reg;window.BILINGUAL=ba;let qs=["Total flats kitne hain?","Builder handover rule","CC/OC status","Fire NOC","Environment clearance","Pollution consent","Water approval","JDA approval","Unsold flats maintenance","IFMS transfer","Sinking fund"];$("#chips").innerHTML=qs.map(x=>`<span class=chip>${x}</span>`).join("");document.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{q.value=c.textContent;render()});document.querySelectorAll(".home-tile[data-q]").forEach(c=>c.onclick=()=>{q.value=c.dataset.q;render();document.getElementById("results").scrollIntoView({behavior:"smooth"})});let hd=document.getElementById("homeDocs");if(hd)hd.onclick=openProtectedUpload;
+let lt=document.getElementById("latestTile");if(lt)lt.onclick=renderLatestUpdates;
+let st=document.getElementById("smartTile");if(st)st.onclick=renderSmartOverview;let bb=document.getElementById("backupBtn");if(bb)bb.onclick=async()=>{if(await authorizeUpload()){uploadAuthUntil=0;await exportLocalData();}};
+buildFastIndex();refreshSaved();runBootDiagnostics()}).catch(err=>{console.error(err);$("#results").innerHTML='<div class="card"><b>Search data failed to load.</b><p>Core search files could not load. Open the deployed HTTPS/PWA version, not index.html directly from the ZIP.</p></div>'});
 
 
 
@@ -324,8 +446,8 @@ async function readUpload(file){
  arr.forEach(d=>d.text=`[AUTO CLASSIFICATION: ${type}] [DATES: ${intel.dates.join(", ")}] [NUMBERS: ${intel.numbers.join(", ")}] [AUTHORITIES: ${intel.authorities.join(", ")}] `+d.text);
  return {docs:arr,type,intel};
 }
-$("#uploadBtn").onclick=()=>$("#fileInput").click();
-$("#fileInput").onchange=async e=>{
+$("#uploadBtn").onclick=openProtectedUpload;
+$("#fileInput").onchange=async e=>{if(Date.now()>=uploadAuthUntil){e.target.value="";alert("Admin PIN authorization required.");return;}uploadAuthUntil=0;
  for(const f of [...e.target.files]){
    try{let r=await readUpload(f);await vaultPut({id:f.name+"_"+f.size+"_"+f.lastModified,name:f.name,pages:r.docs.length,added:new Date().toLocaleString(),docs:r.docs,type:r.type,intel:r.intel})}
    catch(err){alert(f.name+": "+err.message)}

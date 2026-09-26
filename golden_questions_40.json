@@ -1,0 +1,162 @@
+[
+  {
+    "q": "Can builder charge maintenance without CC/OC?",
+    "expected_intent": "maintenance"
+  },
+  {
+    "q": "Builder maintainance OC bina le sakta hai?",
+    "expected_intent": "maintenance"
+  },
+  {
+    "q": "Maintenance kab se charge hui?",
+    "expected_intent": "maintenance"
+  },
+  {
+    "q": "Can builder charge sinking fund separately?",
+    "expected_intent": "sinking"
+  },
+  {
+    "q": "Capital equipment repair fund legal basis?",
+    "expected_intent": "sinking"
+  },
+  {
+    "q": "Sinking fund extra kyun?",
+    "expected_intent": "sinking"
+  },
+  {
+    "q": "RWA handover deadline from builder",
+    "expected_intent": "handover"
+  },
+  {
+    "q": "Handover process kya hai",
+    "expected_intent": "handover"
+  },
+  {
+    "q": "Builder se RWA ko kaunse documents handover honge?",
+    "expected_intent": "handover"
+  },
+  {
+    "q": "Common area handover ka process",
+    "expected_intent": "handover"
+  },
+  {
+    "q": "Can RWA be dissolved because handover has not happened?",
+    "expected_intent": "rwa_dissolution"
+  },
+  {
+    "q": "Handover nahi hua to RWA dissolve ho jayegi?",
+    "expected_intent": "rwa_dissolution"
+  },
+  {
+    "q": "Does builder pay maintenance for unsold flats?",
+    "expected_intent": "unsold"
+  },
+  {
+    "q": "Unsold flats ka maintenance kaun dega?",
+    "expected_intent": "unsold"
+  },
+  {
+    "q": "Khali unsold flat maintenance builder dega?",
+    "expected_intent": "unsold"
+  },
+  {
+    "q": "IFMS transfer at handover",
+    "expected_intent": "ifms"
+  },
+  {
+    "q": "IFMS ka kya hoga?",
+    "expected_intent": "ifms"
+  },
+  {
+    "q": "IFMS builder se RWA ko transfer?",
+    "expected_intent": "ifms"
+  },
+  {
+    "q": "Total flats kitne hain?",
+    "expected_intent": "unit_count"
+  },
+  {
+    "q": "454 flats ka proof?",
+    "expected_intent": "unit_count"
+  },
+  {
+    "q": "462 ya 454 flats?",
+    "expected_intent": "unit_count"
+  },
+  {
+    "q": "Fire NOC status",
+    "expected_intent": "department_approval"
+  },
+  {
+    "q": "Environment clearance EC status",
+    "expected_intent": "department_approval"
+  },
+  {
+    "q": "Pollution STP approval",
+    "expected_intent": "department_approval"
+  },
+  {
+    "q": "Water permission available?",
+    "expected_intent": "department_approval"
+  },
+  {
+    "q": "JVVNL electricity approval",
+    "expected_intent": "department_approval"
+  },
+  {
+    "q": "Project completion date kya hai?",
+    "expected_intent": "completion"
+  },
+  {
+    "q": "RERA extension date",
+    "expected_intent": "completion"
+  },
+  {
+    "q": "Tower floors kitne hain?",
+    "expected_intent": "floors"
+  },
+  {
+    "q": "Kya sabhi tower 14 floor hain?",
+    "expected_intent": "floors"
+  },
+  {
+    "q": "Tower A floors",
+    "expected_intent": "floors"
+  },
+  {
+    "q": "RWA registration status",
+    "expected_intent": "rwa"
+  },
+  {
+    "q": "MHMRWS bye laws",
+    "expected_intent": "rwa"
+  },
+  {
+    "q": "Occupancy certificate status",
+    "expected_intent": "cc_oc"
+  },
+  {
+    "q": "CC OC mila hai?",
+    "expected_intent": "cc_oc"
+  },
+  {
+    "q": "RERA complaint against Ayaan",
+    "expected_intent": "complaint"
+  },
+  {
+    "q": "Ayaan Buildtech case complaint",
+    "expected_intent": "complaint"
+  },
+  {
+    "q": "Project mortgage status",
+    "expected_intent": "mortgage"
+  },
+  {
+    "q": "Bank charge satisfied?",
+    "expected_intent": "mortgage"
+  },
+  {
+    "q": "Encumbrance release position",
+    "expected_intent": "mortgage"
+  }
+]

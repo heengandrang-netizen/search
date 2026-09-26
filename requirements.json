@@ -1,1 +1,61 @@
-{"unit_count": ["authenticated RERA inventory / sanctioned unit schedule"], "handover": ["formal handover/offer letter", "asset & document inventory", "RWA acceptance/objection record"], "unsold": ["authenticated ownership/unsold-unit list", "Agreement for Sale maintenance clause", "registered RWA bye-laws"], "sinking": ["contractual/bye-law authority for the charge", "resolution/demand basis", "purpose and transfer/handover terms"], "ifms": ["IFMS collection clause", "amount/ledger or transfer statement", "handover/nominee/service-agency record"], "completion": ["exact tower/block certificate", "scope of CC/OC", "approval/inspection record"], "common_area": ["sanctioned plan/common-area schedule", "declaration/Agreement for Sale", "handover/common-asset record"], "case_law": ["exact legal issue and forum", "current status/appeal/stay check"], "builder": ["RERA promoter certificate"], "rera": ["RERA registration/certificate"]}
+{
+  "unit_count": [
+    "authenticated RERA inventory / sanctioned unit schedule"
+  ],
+  "handover": [
+    "Occupancy Certificate",
+    "registered conveyance/common-area transfer",
+    "handover inventory",
+    "project plans and approvals",
+    "Association registration/bye-laws"
+  ],
+  "unsold": [
+    "sanctioned/actual unsold inventory",
+    "Association maintenance resolution/rate",
+    "period for which charge is examined"
+  ],
+  "sinking": [
+    "registered Agreement for Sale clause",
+    "builder/RWA demand notice",
+    "calculation and purpose",
+    "bye-laws/resolution/accounts"
+  ],
+  "ifms": [
+    "registered Agreement for Sale IFMS clause",
+    "IFMS ledger",
+    "handover/takeover record",
+    "transfer proof"
+  ],
+  "completion": [
+    "exact tower/block certificate",
+    "scope of CC/OC",
+    "approval/inspection record"
+  ],
+  "common_area": [
+    "sanctioned plan/common-area schedule",
+    "declaration/Agreement for Sale",
+    "handover/common-asset record"
+  ],
+  "case_law": [
+    "exact legal issue and forum",
+    "current status/appeal/stay check"
+  ],
+  "builder": [
+    "RERA promoter certificate"
+  ],
+  "rera": [
+    "RERA registration/certificate"
+  ],
+  "maintenance": [
+    "Occupancy/Completion Certificate status",
+    "registered Agreement for Sale maintenance clause",
+    "maintenance start/demand notice",
+    "service/possession evidence"
+  ],
+  "rwa_dissolution": [
+    "MHMRWS registration certificate",
+    "registered bye-laws",
+    "applicable registration category",
+    "dissolution resolution/order if any"
+  ]
+}
