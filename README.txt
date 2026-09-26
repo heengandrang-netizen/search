@@ -162,3 +162,15 @@ AUDIT PASS
 - Core offline-cache asset presence.
 KNOWN LIMITATION
 - First-use PDF/image OCR is not guaranteed fully offline because PDF.js/Tesseract runtime assets remain external. Core search and already-indexed evidence remain offline after PWA caching.
+
+v10.8.5 RUNTIME STARTUP FIX
+ROOT CAUSE FIXED:
+- runBootDiagnostics() referenced undeclared variable GATEWAYS.
+- Gateway data is actually loaded into window.GW.
+- This ReferenceError occurred after successful data loading, then propagated into the startup catch block and falsely displayed "Search engine could not initialize."
+FIX:
+- Diagnostics now reads window.GW.
+- Non-critical saved-case UI and boot diagnostics are isolated so they cannot crash the core search startup.
+- Service-worker cache bumped to v10.8.5.
+- Embedded per-file JSON fallback retained.
+- 40/40 Golden Question regression retained.

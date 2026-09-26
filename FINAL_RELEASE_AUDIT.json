@@ -1,0 +1,7 @@
+{
+  "version": "10.8.6",
+  "blocking_issues": [],
+  "golden": "40/40 PASS",
+  "github_pages_subpath_http_test": "PASS (performed against v10.8.5 base; all core URLs returned valid content)",
+  "runtime_hardening": "global emergency embedded-DB recovery added"
+}

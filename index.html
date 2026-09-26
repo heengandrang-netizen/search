@@ -271,7 +271,7 @@ function runBootDiagnostics(){
  if(!KB?.facts?.length)issues.push("Knowledge base");
  if(!DOCS?.length)issues.push("Document index");
  if(!Object.keys(INTENTS||{}).length)issues.push("Intent engine");
- if(!GATEWAYS?.length)issues.push("Official gateways");
+ if(!(window.GW||[]).length)issues.push("Official gateways");
  const badge=document.createElement("div");badge.id="healthBadge";badge.className="health-badge";
  badge.textContent=issues.length?"⚠ Search data issue":("✓ Search ready • "+(navigator.onLine?"online":"offline"));
  badge.title=issues.length?("Missing: "+issues.join(", ")):"Core search data loaded • 40-question regression suite included";
@@ -372,7 +372,10 @@ Promise.all([
 .then(([k,d,i,c,r,cf,gw,reg,ba])=>{KB=k;DOCS=d;INTENTS=i;CONCEPTS=c;REQ=r;CONFLICTS=cf;window.GW=gw;window.REG=reg;window.BILINGUAL=ba;let qs=["Total flats kitne hain?","Builder handover rule","CC/OC status","Fire NOC","Environment clearance","Pollution consent","Water approval","JDA approval","Unsold flats maintenance","IFMS transfer","Sinking fund"];$("#chips").innerHTML=qs.map(x=>`<span class=chip>${x}</span>`).join("");document.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{q.value=c.textContent;render()});document.querySelectorAll(".home-tile[data-q]").forEach(c=>c.onclick=()=>{q.value=c.dataset.q;render();document.getElementById("results").scrollIntoView({behavior:"smooth"})});let hd=document.getElementById("homeDocs");if(hd)hd.onclick=openProtectedUpload;
 let lt=document.getElementById("latestTile");if(lt)lt.onclick=renderLatestUpdates;
 let st=document.getElementById("smartTile");if(st)st.onclick=renderSmartOverview;let bb=document.getElementById("backupBtn");if(bb)bb.onclick=async()=>{if(await authorizeUpload()){uploadAuthUntil=0;await exportLocalData();}};
-buildFastIndex();refreshSaved();runBootDiagnostics()}).catch(err=>{console.error(err);$("#results").innerHTML='<div class="card"><b>Search engine could not initialize.</b><p>Reload once. Core search data is embedded in this build, so missing hosted JSON files should not disable search.</p></div>'});
+buildFastIndex();
+try{refreshSaved()}catch(e){console.warn("Saved-cases UI:",e)}
+try{runBootDiagnostics()}catch(e){console.warn("Boot diagnostics:",e)}
+}).catch(err=>{console.error(err);$("#results").innerHTML='<div class="card"><b>Search engine could not initialize.</b><p>A critical startup error occurred. Reload once; if it persists, update to the latest build.</p></div>'});
 
 
 
@@ -462,4 +465,12 @@ $("#fileInput").onchange=async e=>{if(Date.now()>=uploadAuthUntil){e.target.valu
 refreshVault();
 
 if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js");
+</script><script>
+window.addEventListener("error",function(ev){
+ console.error("MHMRWS runtime error",ev.error||ev.message);
+ const r=document.getElementById("results"),e=window.__MHM_EMBEDDED__||{};
+ if(r&&/could not initialize/i.test(r.textContent||"")&&e.KB&&e.DOCS&&e.INTENTS){
+  try{KB=e.KB;DOCS=e.DOCS;INTENTS=e.INTENTS;CONCEPTS=e.CONCEPTS||[];REQ=e.REQ||[];CONFLICTS=e.CONFLICTS||[];window.GW=e.GW||[];window.REG=e.REG||[];window.BILINGUAL=e.BILINGUAL||[];buildFastIndex();r.innerHTML='<div class="empty"><h3>Search ready</h3><p>Core offline database recovered.</p></div>'}catch(_e){}
+ }
+});
 </script></body></html>
