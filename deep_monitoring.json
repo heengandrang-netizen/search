@@ -1,0 +1,75 @@
+{
+  "version": "10.3",
+  "name": "MHM Deep Evidence Watch",
+  "mode": "condition_watch",
+  "check_frequency": "Every 6 hours (ChatGPT automation)",
+  "identifiers": [
+    "Max Heights Majestic",
+    "Max Heiights Majestic",
+    "Max Heights",
+    "Ayaan Buildtech Private Limited",
+    "Ayaan Buildtech Pvt Ltd",
+    "Ayan Buildtech",
+    "RAJ/P/2017/150",
+    "GH-III",
+    "Nindar",
+    "Suncity",
+    "Sun City",
+    "Grand Sikar Road",
+    "Sikar Road Jaipur"
+  ],
+  "priority_sources": [
+    "Rajasthan RERA",
+    "JDA",
+    "Rajasthan LSG / Fire",
+    "PARIVESH / Environment",
+    "Rajasthan Pollution Control",
+    "PHED / water / groundwater",
+    "Forest / Wildlife",
+    "JVVNL / electricity",
+    "Jaipur municipal/civic records",
+    "land/title/encumbrance records",
+    "MCA/company charges",
+    "Rajasthan High Court",
+    "Supreme Court",
+    "institutional/bank records",
+    "credible newspapers"
+  ],
+  "priority_evidence": [
+    "Tower A-G sanctioned floor configuration",
+    "authenticated sanctioned flat/unit inventory",
+    "CC/OC/completion/occupancy records",
+    "RERA extension certificates and project updates",
+    "conveyance/common-area handover",
+    "RWA/AOA registration, bye-laws and handover inventory",
+    "maintenance/IFMS/corpus-related official records",
+    "Fire NOC and renewals",
+    "EC/applicability",
+    "Pollution/STP consent",
+    "water permissions",
+    "electricity/electrical approvals",
+    "current land-title/encumbrance/mortgage-release position",
+    "RERA complaints/orders and court records"
+  ],
+  "alert_rules": {
+    "notify_only_on": [
+      "new meaningful project-specific record",
+      "changed official status",
+      "new renewal/version",
+      "newly indexed attachment",
+      "material contradiction",
+      "material correction"
+    ],
+    "suppress": [
+      "duplicate property listings",
+      "low-value SEO pages",
+      "unchanged records"
+    ],
+    "evidence_rules": [
+      "Primary official evidence outranks secondary corroboration.",
+      "Not found must never be interpreted as not issued.",
+      "Do not generalize project-level floor descriptions to every tower.",
+      "Every alert should state authority/source, record date if available, what changed, evidence class and why it matters."
+    ]
+  }
+}
