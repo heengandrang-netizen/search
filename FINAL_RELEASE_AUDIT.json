@@ -1,7 +1,8 @@
 {
-  "version": "10.8.6",
+  "version": "10.8.8",
   "blocking_issues": [],
+  "new_bug_found_and_fixed": "esc() was referenced by the post-search production trust/evidence layer but was undefined. Added safe HTML escaping and isolated optional result enhancement from core search.",
+  "search_root_fix_retained": "expandBi exists and expanded query is wired into intent/ranking.",
   "golden": "40/40 PASS",
-  "github_pages_subpath_http_test": "PASS (performed against v10.8.5 base; all core URLs returned valid content)",
-  "runtime_hardening": "global emergency embedded-DB recovery added"
+  "release_note": "Core result rendering is now isolated from optional smart/trust UI enhancement failures."
 }

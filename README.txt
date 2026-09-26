@@ -174,3 +174,15 @@ FIX:
 - Service-worker cache bumped to v10.8.5.
 - Embedded per-file JSON fallback retained.
 - 40/40 Golden Question regression retained.
+
+v10.8.7 SEARCH RESULT FIX
+ROOT CAUSE:
+- expandBi() was called by render(), smartMatches() and conflictFor(), but the function did not exist.
+- Clicking Search therefore raised ReferenceError before ranking/rendering any result.
+FIX:
+- Added bilingual/Hinglish query expansion.
+- Main intent detection and fact scoring now use the expanded query.
+- Reduced the overly strict local-result cutoff.
+- Added a no-blank result fallback.
+- Service-worker cache bumped to v10.8.7.
+- Existing 40/40 Golden data regression retained.

@@ -1,0 +1,21 @@
+{
+  "version": "10.8.7",
+  "queries": [
+    "total flats kitne hai",
+    "Max Heights me kitne flat hain",
+    "handover process kya hai",
+    "builder handover nahi de raha",
+    "unsold flats ka maintenance kaun dega",
+    "sinking fund maintenance se alag le sakte hai",
+    "Fire NOC status",
+    "environment clearance",
+    "pollution STP permission",
+    "JDA sanctioned plan",
+    "CC OC status",
+    "IFMS transfer",
+    "Ayaan Buildtech complaint case",
+    "tower floors kitne hain",
+    "RWA dissolve ho sakti hai"
+  ],
+  "root_cause_fixed": "expandBi was referenced by render/smartMatches/conflictFor but missing from runtime; now implemented and render uses expanded query for intent/scoring."
+}

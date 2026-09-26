@@ -112,6 +112,39 @@ function trustOf(x){
  if(t.includes("rajasthan rera")||t.includes("jda"))return {n:6,l:"Official Verified"};
  return {n:2,l:"Web Claim"};
 }
+
+function expandBi(text){
+ let x=String(text||"").trim();
+ const pairs=[
+  ["handover","handover takeover possession common areas conveyance हैंडओवर हस्तांतरण"],
+  ["maintenance","maintenance maintanance maintainance रखरखाव मेंटेनेंस"],
+  ["sinking fund","sinking fund repair fund corpus सिंकिंग फंड मरम्मत कोष"],
+  ["unsold","unsold un sold vacant promoter inventory अनसोल्ड बिना बिका"],
+  ["flat","flat flats unit units apartment apartments फ्लैट यूनिट"],
+  ["builder","builder promoter developer ayaan buildtech अयान बिल्डटेक बिल्डर प्रमोटर"],
+  ["rwa","rwa association society resident welfare society आरडब्ल्यूए सोसाइटी एसोसिएशन"],
+  ["fire","fire noc अग्निशमन फायर एनओसी"],
+  ["environment","environment ec environmental clearance पर्यावरण ईसी"],
+  ["pollution","pollution stp consent प्रदूषण एसटीपी"],
+  ["water","water phed जल पानी"],
+  ["electricity","electricity jvvnl power बिजली"],
+  ["jda","jda sanctioned plan building plan जेडीए स्वीकृत नक्शा"],
+  ["rera","rera rajrera राजस्थान रेरा रेरा"],
+  ["completion","completion cc completion certificate पूर्णता प्रमाणपत्र"],
+  ["occupancy","occupancy oc occupancy certificate अधिभोग प्रमाणपत्र"],
+  ["ifms","ifms interest free maintenance security आईएफएमएस"],
+  ["tower","tower floor floors मंजिल टावर"],
+  ["case","case complaint order judgement judgment शिकायत आदेश फैसला"],
+  ["total","total number count कुल संख्या कितने"]
+ ];
+ let n=x.toLowerCase(),extra=[];
+ for(const [key,vals] of pairs){
+   let terms=vals.split(/\s+/);
+   if(n.includes(key)||terms.some(t=>t.length>2&&n.includes(t.toLowerCase()))) extra.push(vals);
+ }
+ return (x+" "+extra.join(" ")).trim();
+}
+
 function smartMatches(raw){
  let nr=N(expandBi(raw)), toks=nr.split(/\s+/).filter(x=>x.length>1), all=(window.KB?.facts||KB?.facts||[]);
  return all.map(f=>{let txt=N([f.title,f.section,f.subsection,(f.tags||[]).join(" "),(f.points||[]).join(" ")].join(" "));let score=toks.reduce((a,t)=>a+(txt.includes(t)?2:0),0);let tr=trustOf(f);score+=tr.n*.35;return {f,score,tr}}).filter(x=>x.score>0).sort((a,b)=>b.score-a.score);
@@ -155,6 +188,11 @@ function towerPanel(raw){
  </div></details>`;
 }
 
+
+function esc(v){
+ return String(v??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+}
+
 function addProductionTrustLayer(){
  let r=$("#results");if(!r||!q.value.trim()||r.querySelector(".prod-trust"))return;
  let it=detectIntent(q.value),txt=reviewedAnswer(it,ANSWER_LANG==="hi"?"hi":"en");
@@ -167,13 +205,15 @@ function addProductionTrustLayer(){
 function enhanceSmartResult(){
  let r=$("#results");if(!r||!q.value.trim()||r.dataset.enhancing==="1")return;
  r.dataset.enhancing="1";
- if(!r.querySelector(".smart-answer"))r.insertAdjacentHTML("afterbegin",universalSmartPanel());
- if(!r.querySelector(".towergrid"))r.insertAdjacentHTML("beforeend",towerPanel(q.value));
- addProductionTrustLayer();
- r.dataset.enhancing="0";
+ try{
+  if(!r.querySelector(".smart-answer"))r.insertAdjacentHTML("afterbegin",universalSmartPanel());
+  if(!r.querySelector(".towergrid"))r.insertAdjacentHTML("beforeend",towerPanel(q.value));
+  addProductionTrustLayer();
+ }catch(e){console.warn("Optional result layer:",e)}
+ finally{r.dataset.enhancing="0"}
 }
 
-const _smartObs=new MutationObserver(()=>{clearTimeout(window._smartT);window._smartT=setTimeout(enhanceSmartResult,120)});
+const _smartObs=new MutationObserver(()=>{clearTimeout(window._smartT);window._smartT=setTimeout(()=>{try{enhanceSmartResult()}catch(e){console.warn("Smart result enhancement:",e)}},120)});
 document.addEventListener("DOMContentLoaded",()=>{let r=$("#results");if(r)_smartObs.observe(r,{childList:true})});
 
 let RESULT_LANG="auto";
@@ -349,12 +389,12 @@ async function openProtectedUpload(){
 }
 
 function render(){let raw=q.value.trim(),rawSearch=expandBi(raw);if(!raw)return;saveQueryHistory(raw);
-if(!KB?.facts?.length||!DOCS?.length||!Object.keys(INTENTS||{}).length){$("#results").innerHTML='<div class="card"><b>Search engine is loading…</b><p>Please try again in a moment.</p></div>';return;}let it=detectIntent(raw),fa=KB.facts.map(f=>[fscore(f,raw,it),f]).sort((a,b)=>b[0]-a[0]);
+if(!KB?.facts?.length||!DOCS?.length||!Object.keys(INTENTS||{}).length){$("#results").innerHTML='<div class="card"><b>Search engine is loading…</b><p>Please try again in a moment.</p></div>';return;}let it=detectIntent(rawSearch),fa=KB.facts.map(f=>[fscore(f,rawSearch,it),f]).sort((a,b)=>b[0]-a[0]);
 if(!fa.length){$("#results").innerHTML='<article class="card"><h3>No local match</h3><p>Try another wording or use the official-source gateways.</p></article>';return;}
-if(!fa[0]||fa[0][0]<10){$("#results").innerHTML='<article class="card warn"><h3>No reliable local answer yet</h3><p>The offline evidence base does not have a sufficiently relevant answer for this wording. Try another wording or use Official Web Verification (internet).</p><div class=actions>'+online(raw)+'</div></article>';return;}
-let cards=fa.slice(0,4).map(x=>x[1]),best=cards[0],pts=compose(cards),ds=DOCS.map(d=>[dscore(d,raw),d]).filter(x=>x[0]>1.7).sort((a,b)=>b[0]-a[0]).slice(0,5).map(x=>x[1]),conf=conflictFor(raw,it),miss=missing(it,ds);
+if(!fa[0]||fa[0][0]<6){$("#results").innerHTML='<article class="card warn"><h3>No reliable local answer yet</h3><p>The offline evidence base does not have a sufficiently relevant answer for this wording. Try another wording or use Official Web Verification (internet).</p><div class=actions>'+online(raw)+'</div></article>';return;}
+let cards=fa.slice(0,4).map(x=>x[1]),best=cards[0],pts=compose(cards),ds=DOCS.map(d=>[dscore(d,rawSearch),d]).filter(x=>x[0]>1.7).sort((a,b)=>b[0]-a[0]).slice(0,5).map(x=>x[1]),conf=conflictFor(raw,it),miss=missing(it,ds);
 $("#status").innerHTML=`<span class=dot></span>Understood: <b>${it.replaceAll("_"," ")}</b> • MHM/Ayaan context • evidence selected automatically`;
-let short=pts.slice(0,2).join(" ");
+if(!pts.length&&best){pts=[best.title,best.source||"Relevant evidence found in the local knowledge base."]}let short=pts.slice(0,2).join(" ");
 let answer=`<article class="card answer"><span class=badge>Composed Answer</span><h3>${best.title}</h3><div class=short>${short}</div><ul class=detail>${pts.slice(2).map((p,i)=>`<li>${p}${ds[i]?` <span class=cite>${ds[i].file} · p.${ds[i].page}</span>`:""}</li>`).join("")}</ul><div class=source><b>Primary source:</b> ${best.authority} • ${best.confidence}<br>${best.source}</div><div class=actions><button class="btn secondary" onclick='speak(${JSON.stringify(best.title+". "+pts.join(". "))})'>🔊 सुनें</button><button class="btn secondary" id=saveBtn>★ Save Case</button><button class="btn secondary" id=pdfBtn>📄 Report</button></div></article>`;
 if(conf.length)answer+=`<article class="card danger"><span class=badge>Contradiction Check</span><h3>Evidence caution</h3><ul>${conf.map(x=>`<li>${x}</li>`).join("")}</ul></article>`;
 if(ds.length)answer+=`<article class=card><span class=badge>Page-level Evidence</span><h3>Supporting project records</h3>${ds.map(d=>`<div class=evidence><b>${d.file} • Page ${d.page}</b><p>${d.text.slice(0,520)}</p></div>`).join("")}</article>`;
