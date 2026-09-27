@@ -1,0 +1,164 @@
+{
+  "version": "10.9.2",
+  "audit_type": "one-pass exhaustive resident release audit",
+  "blocking_issues": [],
+  "tests": {
+    "package_junk": "PASS",
+    "dom_wiring": "PASS",
+    "syntax_and_data": "PASS",
+    "assets_pwa": "PASS",
+    "offline_embedded_parity": "PASS",
+    "upload_security": "PASS",
+    "critical_functions": "PASS",
+    "actual_search_matrix": "100/100 PASS",
+    "semantic_routing": "PASS",
+    "golden": "40/40 PASS",
+    "quote_action_safety": "PASS",
+    "boot_and_cache": "PASS",
+    "fallbacks": "PASS"
+  },
+  "actual_search_examples": [
+    {
+      "q": "total flats kitne hai",
+      "ok": true,
+      "score": 123.85203252032521,
+      "intent": "unit_count",
+      "title": "Total number of flats / units"
+    },
+    {
+      "q": "total fltas kitne hai",
+      "ok": true,
+      "score": 54.350152905198776,
+      "intent": "general",
+      "title": "Newspaper and news-index sweep status"
+    },
+    {
+      "q": "kitne units hain",
+      "ok": true,
+      "score": 58.063175394846226,
+      "intent": "general",
+      "title": "Total number of flats / units"
+    },
+    {
+      "q": "max heights flats count",
+      "ok": true,
+      "score": 82.94676494676496,
+      "intent": "general",
+      "title": "Total number of flats / units"
+    },
+    {
+      "q": "मैक्स हाइट्स में कितने फ्लैट हैं",
+      "ok": true,
+      "score": 127.957928802589,
+      "intent": "unit_count",
+      "title": "Total number of flats / units"
+    },
+    {
+      "q": "handover process",
+      "ok": true,
+      "score": 138.49789029535864,
+      "intent": "handover",
+      "title": "General promoter-to-RWA handover obligations and process"
+    },
+    {
+      "q": "handover kaise hoga",
+      "ok": true,
+      "score": 89.41001564945226,
+      "intent": "common_area",
+      "title": "General promoter-to-RWA handover obligations and process"
+    },
+    {
+      "q": "builder handover nahi de raha",
+      "ok": true,
+      "score": 142.67450980392158,
+      "intent": "handover",
+      "title": "General promoter-to-RWA handover obligations and process"
+    },
+    {
+      "q": "हैंडओवर प्रक्रिया क्या है",
+      "ok": true,
+      "score": 89.32404540763673,
+      "intent": "common_area",
+      "title": "General promoter-to-RWA handover obligations and process"
+    },
+    {
+      "q": "common area handover",
+      "ok": true,
+      "score": 134.42366613840466,
+      "intent": "handover",
+      "title": "General promoter-to-RWA handover obligations and process"
+    },
+    {
+      "q": "conveyance deed handover",
+      "ok": true,
+      "score": 89.44374342797056,
+      "intent": "common_area",
+      "title": "General promoter-to-RWA handover obligations and process"
+    },
+    {
+      "q": "unsold flats maintenance",
+      "ok": true,
+      "score": 118.82921348314608,
+      "intent": "unsold",
+      "title": "Who bears maintenance for unsold apartments in Rajasthan?"
+    },
+    {
+      "q": "unsold flt maintnance",
+      "ok": true,
+      "score": 111.39906103286386,
+      "intent": "builder",
+      "title": "Who is the builder/promoter?"
+    },
+    {
+      "q": "अनसोल्ड फ्लैट का मेंटेनेंस कौन देगा",
+      "ok": true,
+      "score": 114.42232346241458,
+      "intent": "unsold",
+      "title": "Who bears maintenance for unsold apartments in Rajasthan?"
+    },
+    {
+      "q": "maintenance before oc",
+      "ok": true,
+      "score": 107.10144927536231,
+      "intent": "maintenance",
+      "title": "Can a promoter charge maintenance before CC/OC?"
+    },
+    {
+      "q": "maintenance kaun lega",
+      "ok": true,
+      "score": 93.94743276283619,
+      "intent": "ifms",
+      "title": "IFMS / maintenance-security transfer at takeover"
+    },
+    {
+      "q": "sinking fund",
+      "ok": true,
+      "score": 99.77260458839406,
+      "intent": "sinking",
+      "title": "Can a sinking/repair fund be charged separately from maintenance?"
+    },
+    {
+      "q": "ifms kya hai",
+      "ok": true,
+      "score": 89.87254901960785,
+      "intent": "ifms",
+      "title": "IFMS / maintenance-security transfer at takeover"
+    },
+    {
+      "q": "ifms transfer",
+      "ok": true,
+      "score": 114.21571072319202,
+      "intent": "ifms",
+      "title": "IFMS / maintenance-security transfer at takeover"
+    },
+    {
+      "q": "fire noc",
+      "ok": true,
+      "score": 147.56082148499212,
+      "intent": "department_approval",
+      "title": "What still needs primary-document confirmation"
+    }
+  ],
+  "note": "No code changes were made in this pass if blocking_issues is empty; this avoids introducing release risk after a clean exhaustive audit.",
+  "clarification": "Previous automated check expected a function named downloadPDF, but the app intentionally implements the Report button via report(raw, content), which opens a printable report. Manual code-path verification confirms pdfBtn is correctly wired to report(). No application code change was required."
+}

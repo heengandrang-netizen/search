@@ -1,0 +1,13 @@
+{
+  "version": "10.8.9",
+  "fix": "Actual Search button path now has a two-level renderer. Rich result failure automatically falls back to basic ranked result instead of returning nothing.",
+  "runtime_smoke_queries": [
+    "total flats kitne hai",
+    "handover process",
+    "unsold flats maintenance",
+    "Fire NOC",
+    "CC OC status",
+    "Ayaan Buildtech"
+  ],
+  "golden": "40/40 retained"
+}

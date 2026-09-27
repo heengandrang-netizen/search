@@ -1,0 +1,208 @@
+{
+  "version": "10.9.0",
+  "actual_executable_search_tests": {
+    "total": 26,
+    "passed": 26,
+    "results": [
+      {
+        "q": "total flats kitne hai",
+        "score": 123.85203252032521,
+        "intent": "unit_count",
+        "title": "Total number of flats / units",
+        "ok": true
+      },
+      {
+        "q": "max heights me kitne flat hain",
+        "score": 115.4884488448845,
+        "intent": "unit_count",
+        "title": "Total number of flats / units",
+        "ok": true
+      },
+      {
+        "q": "handover process kya hai",
+        "score": 138.53898482469913,
+        "intent": "handover",
+        "title": "General promoter-to-RWA handover obligations and process",
+        "ok": true
+      },
+      {
+        "q": "builder handover nahi de raha",
+        "score": 142.67450980392158,
+        "intent": "handover",
+        "title": "General promoter-to-RWA handover obligations and process",
+        "ok": true
+      },
+      {
+        "q": "unsold flats ka maintenance kaun dega",
+        "score": 118.81538461538462,
+        "intent": "unsold",
+        "title": "Who bears maintenance for unsold apartments in Rajasthan?",
+        "ok": true
+      },
+      {
+        "q": "sinking fund kya hai",
+        "score": 99.72398939695162,
+        "intent": "sinking",
+        "title": "Can a sinking/repair fund be charged separately from maintenance?",
+        "ok": true
+      },
+      {
+        "q": "fire noc",
+        "score": 147.56082148499212,
+        "intent": "department_approval",
+        "title": "What still needs primary-document confirmation",
+        "ok": true
+      },
+      {
+        "q": "environment clearance",
+        "score": 128.04670912951167,
+        "intent": "department_approval",
+        "title": "What still needs primary-document confirmation",
+        "ok": true
+      },
+      {
+        "q": "pollution stp permission",
+        "score": 131.99052132701422,
+        "intent": "department_approval",
+        "title": "What still needs primary-document confirmation",
+        "ok": true
+      },
+      {
+        "q": "water approval phed",
+        "score": 131.7948717948718,
+        "intent": "department_approval",
+        "title": "What still needs primary-document confirmation",
+        "ok": true
+      },
+      {
+        "q": "jvvnl electricity approval",
+        "score": 132.02453333333335,
+        "intent": "department_approval",
+        "title": "What still needs primary-document confirmation",
+        "ok": true
+      },
+      {
+        "q": "jda sanctioned plan",
+        "score": 94.96029258098223,
+        "intent": "general",
+        "title": "What still needs primary-document confirmation",
+        "ok": true
+      },
+      {
+        "q": "cc oc status",
+        "score": 53.266173752310536,
+        "intent": "cc_oc",
+        "title": "Can a promoter charge maintenance before CC/OC?",
+        "ok": true
+      },
+      {
+        "q": "ifms transfer",
+        "score": 114.21571072319202,
+        "intent": "ifms",
+        "title": "IFMS / maintenance-security transfer at takeover",
+        "ok": true
+      },
+      {
+        "q": "ayaan buildtech complaint",
+        "score": 113.30584192439862,
+        "intent": "builder",
+        "title": "Who is the builder/promoter?",
+        "ok": true
+      },
+      {
+        "q": "rwa dissolve ho sakti hai",
+        "score": 114.61333333333333,
+        "intent": "rwa_dissolution",
+        "title": "Does delayed/non-handover automatically dissolve an RWA?",
+        "ok": true
+      },
+      {
+        "q": "tower floors kitne hain",
+        "score": 35.91954022988506,
+        "intent": "floors",
+        "title": "Do not assume 14 upper floors for every tower",
+        "ok": true
+      },
+      {
+        "q": "maintenance before oc",
+        "score": 107.10144927536231,
+        "intent": "maintenance",
+        "title": "Can a promoter charge maintenance before CC/OC?",
+        "ok": true
+      },
+      {
+        "q": "builder ka naam kya hai",
+        "score": 105.34347275031686,
+        "intent": "builder",
+        "title": "Who is the builder/promoter?",
+        "ok": true
+      },
+      {
+        "q": "rera registration number",
+        "score": 78.60976314269209,
+        "intent": "rera",
+        "title": "Form-F — extension to 31 December 2021 and continuing conditions",
+        "ok": true
+      },
+      {
+        "q": "मैक्स हाइट्स में कितने फ्लैट हैं",
+        "score": 127.957928802589,
+        "intent": "unit_count",
+        "title": "Total number of flats / units",
+        "ok": true
+      },
+      {
+        "q": "हैंडओवर प्रक्रिया क्या है",
+        "score": 89.32404540763673,
+        "intent": "common_area",
+        "title": "General promoter-to-RWA handover obligations and process",
+        "ok": true
+      },
+      {
+        "q": "अनसोल्ड फ्लैट का मेंटेनेंस कौन देगा",
+        "score": 114.42232346241458,
+        "intent": "unsold",
+        "title": "Who bears maintenance for unsold apartments in Rajasthan?",
+        "ok": true
+      },
+      {
+        "q": "फायर एनओसी",
+        "score": 147.56082148499212,
+        "intent": "department_approval",
+        "title": "What still needs primary-document confirmation",
+        "ok": true
+      },
+      {
+        "q": "जेडीए स्वीकृत नक्शा",
+        "score": 94.95931142410015,
+        "intent": "general",
+        "title": "What still needs primary-document confirmation",
+        "ok": true
+      },
+      {
+        "q": "आरडब्ल्यूए भंग हो सकती है",
+        "score": 106.25777777777778,
+        "intent": "rwa_dissolution",
+        "title": "Does delayed/non-handover automatically dissolve an RWA?",
+        "ok": true
+      }
+    ]
+  },
+  "semantic_routing_assertions": {
+    "builder handover nahi de raha": "handover",
+    "unsold flats ka maintenance kaun dega": "unsold",
+    "maintenance before oc": "maintenance",
+    "अनसोल्ड फ्लैट का मेंटेनेंस कौन देगा": "unsold",
+    "rwa dissolve ho sakti hai": "rwa_dissolution",
+    "tower floors kitne hain": "floors"
+  },
+  "golden_regression": "40/40 PASS",
+  "js_json_service_worker": "PASS",
+  "pin_plaintext": "ABSENT",
+  "fixes": [
+    "Specific handover+builder queries no longer route to generic builder identity.",
+    "Unsold-flat maintenance queries in English/Hinglish/Hindi route to unsold-maintenance evidence.",
+    "Maintenance-before-OC routes to maintenance rather than IFMS.",
+    "Trust/evidence enhancement now uses the same expanded intent/scoring query as core search."
+  ]
+}

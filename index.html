@@ -195,8 +195,8 @@ function esc(v){
 
 function addProductionTrustLayer(){
  let r=$("#results");if(!r||!q.value.trim()||r.querySelector(".prod-trust"))return;
- let it=detectIntent(q.value),txt=reviewedAnswer(it,ANSWER_LANG==="hi"?"hi":"en");
- let top=(KB?.facts||[]).map(f=>[fscore(f,q.value,it),f]).sort((a,b)=>b[0]-a[0])[0]?.[1];
+ let it=detectIntent(expandBi(q.value)),txt=reviewedAnswer(it,ANSWER_LANG==="hi"?"hi":"en");
+ let top=(KB?.facts||[]).map(f=>[fscore(f,expandBi(q.value),it),f]).sort((a,b)=>b[0]-a[0])[0]?.[1];
  let box=document.createElement("section");box.className="card prod-trust";
  box.innerHTML=`<span class=badge>Reviewed answer layer</span>${txt?`<p>${esc(txt)}</p>`:"<p>No reviewed bilingual summary exists for this intent yet; the evidence-ranked result above remains primary.</p>"}${exactEvidenceBlock(top)}${feedbackBar(q.value)}`;
  r.appendChild(box);
@@ -269,7 +269,16 @@ function grams(s,n=3){s=N(s).replace(/\s/g,"_");let a=[];for(let i=0;i<=s.length
 function jac(a,b){let A=grams(a),B=grams(b),i=0;for(let x of A)if(B.has(x))i++;return i/Math.max(1,A.size+B.size-i)}
 function lev(a,b){let m=[...Array(b.length+1).keys()];for(let i=1;i<=a.length;i++){let p=m[0];m[0]=i;for(let j=1;j<=b.length;j++){let t=m[j];m[j]=Math.min(m[j]+1,m[j-1]+1,p+(a[i-1]==b[j-1]?0:1));p=t}}return m[b.length]}
 function expand(s){let n=N(s),o=new Set(n.split(" ").filter(Boolean));for(const[c,a]of Object.entries(CONCEPTS))if(n.includes(c)||a.some(x=>n.includes(N(x))))a.forEach(x=>N(x).split(" ").forEach(y=>o.add(y)));return[...o]}
-function detectIntent(s){let n=N(s),best=["general",0,0];for(const[k,a]of Object.entries(INTENTS))for(const p of a){let pn=N(p),exact=n.includes(pn),sc=exact?(1+Math.min(.45,pn.length/80)):jac(n,pn);if(sc>best[1]||(sc===best[1]&&pn.length>best[2]))best=[k,sc,pn.length]}return best[1]>.18?best[0]:"general"}
+function detectIntent(s){let n=N(s);
+ const has=(...xs)=>xs.some(x=>n.includes(N(x)));
+ // High-specificity intent overrides before fuzzy matching.
+ if(has("unsold","un sold","अनसोल्ड","बिना बिका")&&has("maintenance","maintanance","मेंटेनेंस","रखरखाव"))return "unsold";
+ if(has("handover","takeover","हैंडओवर","हस्तांतरण")&&has("builder","promoter","बिल्डर","प्रमोटर"))return "handover";
+ if(has("maintenance before oc","maintenance before occupancy","oc se pehle maintenance","ओसी से पहले","occupancy se pehle"))return "maintenance";
+ if(has("rwa dissolve","rwa dissolution","आरडब्ल्यूए भंग","society dissolve"))return "rwa_dissolution";
+ if(has("tower","टावर")&&has("floor","floors","मंजिल"))return "floors";
+ if(has("total flats","number of flats","kitne flat","कितने फ्लैट","कुल फ्लैट","units kitne"))return "unit_count";
+ let best=["general",0,0];for(const[k,a]of Object.entries(INTENTS))for(const p of a){let pn=N(p),exact=n.includes(pn),sc=exact?(1+Math.min(.45,pn.length/80)):jac(n,pn);if(sc>best[1]||(sc===best[1]&&pn.length>best[2]))best=[k,sc,pn.length]}return best[1]>.18?best[0]:"general"}
 function fscore(f,s,it){let h=(FAST_INDEX.find(x=>x.f===f)?.text)||N([f.title,f.section,f.subsection,...(f.tags||[]),...(f.points||[])].join(" ")),z=jac(s,h)*16;for(const t of expand(s)){if(h.includes(t))z+=4;else if(t.length>4){let d=99;for(const w of h.split(" ").slice(0,650))d=Math.min(d,lev(t,w));if(d<=1)z+=1.6}}if(f.intent===it)z+=45;if((f.priority||0)>0)z+=f.priority/6;if((f.confidence||"").includes("Project document"))z+=5;return z}
 function dscore(d,s){let h=N(d.text),z=jac(s,h)*8;for(const t of expand(s))if(t.length>2&&h.includes(t))z+=2.3;return z}
 function compose(cards){let pts=[];for(const f of cards)for(const p of f.points||[])if(!pts.some(x=>N(x)===N(p)))pts.push(p);return pts.slice(0,6)}
@@ -292,7 +301,7 @@ document.addEventListener("click",e=>{
 
 function speak(text){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.lang=uiLang()==="hi"?"hi-IN":"en-IN";speechSynthesis.speak(u)}
 function saveCase(raw,html){let a=JSON.parse(localStorage.getItem("mhmSaved")||"[]");a.unshift({q:raw,html,date:new Date().toLocaleString()});localStorage.setItem("mhmSaved",JSON.stringify(a.slice(0,20)));refreshSaved()}
-function refreshSaved(){let a=JSON.parse(localStorage.getItem("mhmSaved")||"[]");$("#savedMini").innerHTML=a.length?a.slice(0,5).map((x,i)=>`<div class=saved onclick="q.value=${JSON.stringify(x.q)};render()">${x.q}</div>`).join(""):"None yet"}
+function refreshSaved(){let a=[];try{a=JSON.parse(localStorage.getItem("mhmSaved")||"[]")}catch(e){};let shown=a.slice(0,5);$("#savedMini").innerHTML=shown.length?shown.map((x,i)=>`<div class=saved data-saved-i="${i}">${esc(x.q)}</div>`).join(""):"None yet";$("#savedMini").querySelectorAll("[data-saved-i]").forEach(el=>el.onclick=()=>{q.value=shown[Number(el.dataset.savedI)]?.q||"";render()})}
 function report(raw,content){let w=open("","_blank");w.document.write(`<title>MHM Research Report</title><style>body{font-family:Arial;padding:38px;line-height:1.55}article{break-inside:avoid}small{color:#666}</style><h1>MHM Evidence Research Report</h1><p><b>Question:</b> ${raw}</p>${content}<hr><small>Research aid. Verify exact current law/order and project-specific originals before legal reliance.</small><script>onload=()=>print()<\/script>`);w.document.close()}
 function online(raw){let x=encodeURIComponent(raw+" Max Heights Majestic Ayaan Buildtech"),a=[["Rajasthan RERA",`https://www.google.com/search?q=site%3Arera.rajasthan.gov.in+${x}`],["Rajasthan High Court",`https://www.google.com/search?q=site%3Ahcraj.nic.in+${x}`],["Supreme Court",`https://www.google.com/search?q=site%3Asci.gov.in+${x}`],["Rajasthan Govt/JDA",`https://www.google.com/search?q=site%3Arajasthan.gov.in+${x}`]];return a.map(v=>`<a target=_blank rel=noopener href="${v[1]}"><button class="btn secondary">${v[0]}</button></a>`).join("")}
 
@@ -323,6 +332,21 @@ function runBootDiagnostics(){
 
 
 let FAST_INDEX=[];
+
+function runActualSearchSmokeTests(){
+ const tests=["total flats kitne hai","handover process","unsold flats maintenance","Fire NOC","CC OC status","Ayaan Buildtech"];
+ const out=[];
+ for(const query of tests){
+   try{
+    const ex=expandBi(query),it=detectIntent(ex),ranked=(KB?.facts||[]).map(f=>fscore(f,ex,it)).sort((a,b)=>b-a);
+    out.push({query,ok:ranked.length>0&&ranked[0]>=2,score:ranked[0]||0,intent:it});
+   }catch(e){out.push({query,ok:false,error:String(e)})}
+ }
+ window.__MHM_SEARCH_SMOKE__=out;
+ console.log("MHM actual search smoke tests",out);
+ return out.every(x=>x.ok);
+}
+
 function buildFastIndex(){
  FAST_INDEX=(KB?.facts||[]).map(f=>({f,text:N([f.title,f.section,f.subsection,...(f.tags||[]),...(f.points||[])].join(" "))}));
 }
@@ -359,7 +383,9 @@ function saveFeedback(kind,query){
  a.unshift({kind,query,date:new Date().toISOString(),version:"10.8"});localStorage.setItem("mhm_feedback",JSON.stringify(a.slice(0,200)));
  alert("Feedback saved on this device.");
 }
-function feedbackBar(raw){return `<div class=actions><button class="btn secondary" onclick='saveFeedback("wrong",${JSON.stringify(raw)})'>⚑ Wrong answer</button><button class="btn secondary" onclick='saveFeedback("outdated",${JSON.stringify(raw)})'>↻ Outdated</button><button class="btn secondary" onclick='saveFeedback("missing-proof",${JSON.stringify(raw)})'>⌕ Missing proof</button></div>`}
+function packActionText(v){try{return btoa(unescape(encodeURIComponent(String(v??""))))}catch(e){return ""}}
+function unpackActionText(v){try{return decodeURIComponent(escape(atob(String(v||""))))}catch(e){return ""}}
+function feedbackBar(raw){let x=packActionText(raw);return `<div class=actions><button class="btn secondary" onclick="saveFeedback('wrong',unpackActionText('${x}'))">⚑ Wrong answer</button><button class="btn secondary" onclick="saveFeedback('outdated',unpackActionText('${x}'))">↻ Outdated</button><button class="btn secondary" onclick="saveFeedback('missing-proof',unpackActionText('${x}'))">⌕ Missing proof</button></div>`}
 async function exportLocalData(){
  let vault=await vaultAll(),obj={exported:new Date().toISOString(),version:"10.8",vault,feedback:JSON.parse(localStorage.getItem("mhm_feedback")||"[]"),queries:JSON.parse(localStorage.getItem("mhm_query_history")||"[]")};
  let blob=new Blob([JSON.stringify(obj,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="MHMRWS-Search-Local-Backup.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
@@ -388,32 +414,55 @@ async function openProtectedUpload(){
  input.click();
 }
 
-function render(){let raw=q.value.trim(),rawSearch=expandBi(raw);if(!raw)return;saveQueryHistory(raw);
+function renderRich(){let raw=q.value.trim(),rawSearch=expandBi(raw);if(!raw)return;saveQueryHistory(raw);
 if(!KB?.facts?.length||!DOCS?.length||!Object.keys(INTENTS||{}).length){$("#results").innerHTML='<div class="card"><b>Search engine is loading…</b><p>Please try again in a moment.</p></div>';return;}let it=detectIntent(rawSearch),fa=KB.facts.map(f=>[fscore(f,rawSearch,it),f]).sort((a,b)=>b[0]-a[0]);
 if(!fa.length){$("#results").innerHTML='<article class="card"><h3>No local match</h3><p>Try another wording or use the official-source gateways.</p></article>';return;}
 if(!fa[0]||fa[0][0]<6){$("#results").innerHTML='<article class="card warn"><h3>No reliable local answer yet</h3><p>The offline evidence base does not have a sufficiently relevant answer for this wording. Try another wording or use Official Web Verification (internet).</p><div class=actions>'+online(raw)+'</div></article>';return;}
-let cards=fa.slice(0,4).map(x=>x[1]),best=cards[0],pts=compose(cards),ds=DOCS.map(d=>[dscore(d,rawSearch),d]).filter(x=>x[0]>1.7).sort((a,b)=>b[0]-a[0]).slice(0,5).map(x=>x[1]),conf=conflictFor(raw,it),miss=missing(it,ds);
+let cards=fa.slice(0,4).map(x=>x[1]),best=cards[0],pts=compose(cards),ds=DOCS.map(d=>[dscore(d,rawSearch),d]).filter(x=>x[0]>1.7).sort((a,b)=>b[0]-a[0]).slice(0,5).map(x=>x[1]),conf=conflictFor(rawSearch,it),miss=missing(it,ds);
 $("#status").innerHTML=`<span class=dot></span>Understood: <b>${it.replaceAll("_"," ")}</b> • MHM/Ayaan context • evidence selected automatically`;
 if(!pts.length&&best){pts=[best.title,best.source||"Relevant evidence found in the local knowledge base."]}let short=pts.slice(0,2).join(" ");
-let answer=`<article class="card answer"><span class=badge>Composed Answer</span><h3>${best.title}</h3><div class=short>${short}</div><ul class=detail>${pts.slice(2).map((p,i)=>`<li>${p}${ds[i]?` <span class=cite>${ds[i].file} · p.${ds[i].page}</span>`:""}</li>`).join("")}</ul><div class=source><b>Primary source:</b> ${best.authority} • ${best.confidence}<br>${best.source}</div><div class=actions><button class="btn secondary" onclick='speak(${JSON.stringify(best.title+". "+pts.join(". "))})'>🔊 सुनें</button><button class="btn secondary" id=saveBtn>★ Save Case</button><button class="btn secondary" id=pdfBtn>📄 Report</button></div></article>`;
+let answer=`<article class="card answer"><span class=badge>Composed Answer</span><h3>${best.title}</h3><div class=short>${short}</div><ul class=detail>${pts.slice(2).map((p,i)=>`<li>${p}${ds[i]?` <span class=cite>${ds[i].file} · p.${ds[i].page}</span>`:""}</li>`).join("")}</ul><div class=source><b>Primary source:</b> ${best.authority} • ${best.confidence}<br>${best.source}</div><div class=actions><button class="btn secondary" onclick="speak(unpackActionText('${packActionText(best.title+". "+pts.join(". "))}'))">🔊 सुनें</button><button class="btn secondary" id=saveBtn>★ Save Case</button><button class="btn secondary" id=pdfBtn>📄 Report</button></div></article>`;
 if(conf.length)answer+=`<article class="card danger"><span class=badge>Contradiction Check</span><h3>Evidence caution</h3><ul>${conf.map(x=>`<li>${x}</li>`).join("")}</ul></article>`;
-if(ds.length)answer+=`<article class=card><span class=badge>Page-level Evidence</span><h3>Supporting project records</h3>${ds.map(d=>`<div class=evidence><b>${d.file} • Page ${d.page}</b><p>${d.text.slice(0,520)}</p></div>`).join("")}</article>`;
+if(ds.length)answer+=`<article class=card><span class=badge>Page-level Evidence</span><h3>Supporting project records</h3>${ds.map(d=>`<div class=evidence><b>${esc(d.file)} • Page ${esc(d.page)}</b><p>${esc(d.text.slice(0,520))}</p></div>`).join("")}</article>`;
 if(miss.length)answer+=`<article class="card warn"><span class=badge>Missing Evidence Detector</span><h3>For a more definitive project-specific answer</h3><ul>${miss.map(x=>`<li>${x}</li>`).join("")}</ul></article>`;
 if(fa[0][0]<18||best.confidence?.includes("verification required"))answer+=`<article class=card><span class=badge>Official Web Verification (internet)</span><h3>Automatic fallback</h3><p>Local evidence is not definitive. Relevant official-source searches:</p><div class=actions>${online(raw)}</div></article>`;
 $("#results").innerHTML=answer;let printable=$("#results").innerHTML;$("#saveBtn").onclick=()=>saveCase(raw,printable);$("#pdfBtn").onclick=()=>report(raw,printable)}
+
+function basicSearchRender(raw){
+ const rawSearch=expandBi(raw),it=detectIntent(rawSearch);
+ const ranked=(KB?.facts||[]).map(f=>[fscore(f,rawSearch,it),f]).sort((a,b)=>b[0]-a[0]);
+ const hit=ranked[0];
+ if(!hit||hit[0]<2){
+   $("#results").innerHTML=`<article class="card warn"><h3>No close local match</h3><p>Try a shorter wording. The app understood this as <b>${esc(it.replaceAll("_"," "))}</b>.</p><div class=actions>${online(raw)}</div></article>`;
+   return;
+ }
+ const top=ranked.slice(0,4).map(x=>x[1]),best=top[0],pts=compose(top);
+ const lines=(pts.length?pts:[best.title,best.source||"Relevant local evidence found."]).slice(0,5);
+ $("#status").innerHTML=`<span class=dot></span>Understood: <b>${esc(it.replaceAll("_"," "))}</b> • local evidence`;
+ $("#results").innerHTML=`<article class="card answer"><span class=badge>Search Result</span><h3>${esc(best.title||"Relevant result")}</h3><ul class=detail>${lines.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><div class=source><b>Source:</b> ${esc(best.authority||"Local knowledge base")}<br>${esc(best.source||"")}</div></article>`;
+}
+function render(){
+ const raw=q.value.trim();if(!raw)return;
+ try{renderRich()}
+ catch(e){console.error("Rich search render failed",e);try{basicSearchRender(raw)}catch(e2){console.error("Basic search fallback failed",e2);$("#results").innerHTML='<article class="card warn"><h3>Search error</h3><p>Please try a shorter query.</p></article>'}}
+}
+
 $("#ask").onclick=render;q.addEventListener("keydown",e=>{if(e.key==="Enter")render()});
 $("#mic").onclick=()=>{let R=window.SpeechRecognition||window.webkitSpeechRecognition;if(!R)return alert("Voice recognition इस browser में उपलब्ध नहीं है.");let r=new R();r.lang=ANSWER_LANG==="en"?"en-IN":"hi-IN";r.onresult=e=>{q.value=e.results[0][0].transcript;render()};r.start()}
-$("#history").onclick=()=>{let a=JSON.parse(localStorage.getItem("mhmSaved")||"[]");if(!a.length)return alert("No saved cases yet.");q.value=a[0].q;render()}
+$("#history").onclick=()=>{let a=[];try{a=JSON.parse(localStorage.getItem("mhmSaved")||"[]")}catch(e){};if(!a.length)return alert("No saved cases yet.");q.value=a[0].q;render()}
 Promise.all([
  ["kb.json","KB"],["documents.json","DOCS"],["intents.json","INTENTS"],["concepts.json","CONCEPTS"],
  ["requirements.json","REQ"],["conflicts.json","CONFLICTS"],["gateways.json","GW"],
  ["approval_registry.json","REG"],["bilingual_answers.json","BILINGUAL"]
 ].map(async ([url,key])=>{try{let r=await fetch(url,{cache:"no-store"});if(!r.ok)throw new Error(url+" "+r.status);return await r.json()}catch(e){return window.__MHM_EMBEDDED__[key]}}))
-.then(([k,d,i,c,r,cf,gw,reg,ba])=>{KB=k;DOCS=d;INTENTS=i;CONCEPTS=c;REQ=r;CONFLICTS=cf;window.GW=gw;window.REG=reg;window.BILINGUAL=ba;let qs=["Total flats kitne hain?","Builder handover rule","CC/OC status","Fire NOC","Environment clearance","Pollution consent","Water approval","JDA approval","Unsold flats maintenance","IFMS transfer","Sinking fund"];$("#chips").innerHTML=qs.map(x=>`<span class=chip>${x}</span>`).join("");document.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{q.value=c.textContent;render()});document.querySelectorAll(".home-tile[data-q]").forEach(c=>c.onclick=()=>{q.value=c.dataset.q;render();document.getElementById("results").scrollIntoView({behavior:"smooth"})});let hd=document.getElementById("homeDocs");if(hd)hd.onclick=openProtectedUpload;
+.then(async ([k,d,i,c,r,cf,gw,reg,ba])=>{KB=k;DOCS=d;INTENTS=i;CONCEPTS=c;REQ=r;CONFLICTS=cf;window.GW=gw;window.REG=reg;window.BILINGUAL=ba;let qs=["Total flats kitne hain?","Builder handover rule","CC/OC status","Fire NOC","Environment clearance","Pollution consent","Water approval","JDA approval","Unsold flats maintenance","IFMS transfer","Sinking fund"];$("#chips").innerHTML=qs.map(x=>`<span class=chip>${x}</span>`).join("");document.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{q.value=c.textContent;render()});document.querySelectorAll(".home-tile[data-q]").forEach(c=>c.onclick=()=>{q.value=c.dataset.q;render();document.getElementById("results").scrollIntoView({behavior:"smooth"})});let hd=document.getElementById("homeDocs");if(hd)hd.onclick=openProtectedUpload;
 let lt=document.getElementById("latestTile");if(lt)lt.onclick=renderLatestUpdates;
 let st=document.getElementById("smartTile");if(st)st.onclick=renderSmartOverview;let bb=document.getElementById("backupBtn");if(bb)bb.onclick=async()=>{if(await authorizeUpload()){uploadAuthUntil=0;await exportLocalData();}};
 buildFastIndex();
+const smokeOK=runActualSearchSmokeTests();
+if(!smokeOK)console.error("Built-in search smoke test failed",window.__MHM_SEARCH_SMOKE__);
 try{refreshSaved()}catch(e){console.warn("Saved-cases UI:",e)}
+try{await refreshVault()}catch(e){console.warn("Uploaded-document vault:",e)}
 try{runBootDiagnostics()}catch(e){console.warn("Boot diagnostics:",e)}
 }).catch(err=>{console.error(err);$("#results").innerHTML='<div class="card"><b>Search engine could not initialize.</b><p>A critical startup error occurred. Reload once; if it persists, update to the latest build.</p></div>'});
 
@@ -502,7 +551,6 @@ $("#fileInput").onchange=async e=>{if(Date.now()>=uploadAuthUntil){e.target.valu
  }
  await refreshVault();e.target.value="";
 };
-refreshVault();
 
 if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js");
 </script><script>
@@ -510,7 +558,7 @@ window.addEventListener("error",function(ev){
  console.error("MHMRWS runtime error",ev.error||ev.message);
  const r=document.getElementById("results"),e=window.__MHM_EMBEDDED__||{};
  if(r&&/could not initialize/i.test(r.textContent||"")&&e.KB&&e.DOCS&&e.INTENTS){
-  try{KB=e.KB;DOCS=e.DOCS;INTENTS=e.INTENTS;CONCEPTS=e.CONCEPTS||[];REQ=e.REQ||[];CONFLICTS=e.CONFLICTS||[];window.GW=e.GW||[];window.REG=e.REG||[];window.BILINGUAL=e.BILINGUAL||[];buildFastIndex();r.innerHTML='<div class="empty"><h3>Search ready</h3><p>Core offline database recovered.</p></div>'}catch(_e){}
+  try{KB=e.KB;DOCS=e.DOCS;INTENTS=e.INTENTS;CONCEPTS=e.CONCEPTS||[];REQ=e.REQ||[];CONFLICTS=e.CONFLICTS||[];window.GW=e.GW||[];window.REG=e.REG||[];window.BILINGUAL=e.BILINGUAL||[];buildFastIndex();Promise.resolve(refreshVault()).catch(()=>{});r.innerHTML='<div class="empty"><h3>Search ready</h3><p>Core offline database recovered.</p></div>'}catch(_e){}
  }
 });
 </script></body></html>

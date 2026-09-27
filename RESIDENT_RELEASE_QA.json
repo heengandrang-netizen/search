@@ -1,0 +1,25 @@
+{
+  "version": "10.9.1",
+  "release_type": "Resident-facing final QA candidate",
+  "blocking_issues": [],
+  "fixes_applied": [
+    "Boot/upload race fixed: IndexedDB documents now merge after core database load.",
+    "Evidence rendering escaped to prevent uploaded text/HTML from breaking the result page.",
+    "Saved-query rendering hardened; quotes/HTML in searches can no longer break click behavior.",
+    "Saved-case history survives malformed/corrupt localStorage.",
+    "Service worker changed to network-first for app/JSON: new GitHub deployments are not hidden by stale cache."
+  ],
+  "tests": {
+    "actual_executable_searches": "30/30 PASS",
+    "golden_regression": "40/40 PASS",
+    "javascript_json_service_worker": "PASS",
+    "embedded_offline_database": "PASS",
+    "upload_pin_gates": "PASS",
+    "stale_deployment_cache_protection": "NETWORK-FIRST ENABLED",
+    "uploaded_document_boot_merge": "RACE FIXED"
+  },
+  "limitations": [
+    "Image OCR and PDF extraction libraries are fetched from external CDNs on first use, so first-time OCR/PDF parsing needs internet.",
+    "No static test can guarantee behavior on every browser/device; the app now contains runtime fallbacks and built-in smoke tests for core search."
+  ]
+}

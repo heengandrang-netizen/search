@@ -1,0 +1,18 @@
+{
+  "version": "10.9.2",
+  "blocking_issues": [],
+  "fixes": [
+    "Feedback actions made quote-safe for arbitrary resident searches.",
+    "Listen button made quote-safe for arbitrary result text."
+  ],
+  "tests": {
+    "actual_search": "50/50 PASS",
+    "golden": "40/40 PASS",
+    "DOM_wiring": "PASS",
+    "duplicate_DOM_IDs": "NONE",
+    "JS_JSON_SW": "PASS",
+    "inline_action_quote_safety": "PASS",
+    "embedded_DB": "PASS",
+    "PIN_protection": "PASS"
+  }
+}
