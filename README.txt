@@ -1,3 +1,19 @@
+MHMRWS SEARCH v10.9.4
+
+Added privacy-safe, anonymized project evidence from a user-supplied registered conveyance deed. Personal party names, identifiers, addresses, payment references and exact unit number are excluded from the resident knowledge base.
+
+MHMRWS SEARCH v10.9.4
+
+Added privacy-safe, anonymized project evidence from a user-supplied registered conveyance deed. Personal party names, identifiers, addresses, payment references and exact unit number are excluded from the resident knowledge base.
+
+MHMRWS SEARCH v10.9.4
+
+Added privacy-safe, anonymized project evidence from a user-supplied registered conveyance deed. Personal party names, identifiers, addresses, payment references and exact unit number are excluded from the resident knowledge base.
+
+MHMRWS SEARCH v10.9.3
+
+Release fixes: full-width readable results on tablets, PIN/file-picker authorization race fixed, scanned-PDF OCR upload support, and user-supplied Flat Buyer Agreement evidence added with privacy-safe page summaries.
+
 MHM Intelligence v9.4
 - Google-style minimal home screen.
 - English + Hindi + Hinglish search support.

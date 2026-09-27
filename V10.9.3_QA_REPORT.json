@@ -1,0 +1,26 @@
+{
+  "release": "10.9.3",
+  "date": "2026-09-27",
+  "status": "PASS",
+  "scope": [
+    "Tablet and desktop result-width regression",
+    "Admin PIN to file-picker authorization race",
+    "Text PDF and scanned PDF upload paths",
+    "User-supplied 13-page Flat Buyer Agreement indexing",
+    "Embedded offline data parity",
+    "JSON and JavaScript syntax",
+    "Service-worker cache version"
+  ],
+  "checks": {
+    "full_width_results": "PASS - primary result column now uses the available width; secondary cards follow below",
+    "pin_flow": "PASS - authorization is retained while the native picker is open and consumed only after files are selected",
+    "pin_timeout": "PASS - valid authorization expires after ten minutes",
+    "scanned_pdf": "PASS - image-only PDFs fall back to per-page browser OCR",
+    "uploaded_agreement": "PASS - privacy-safe fact summary and 11 page-level evidence summaries added",
+    "personal_identifiers": "PASS - buyer identity details excluded from resident summary",
+    "offline_payload": "PASS - external JSON and embedded fallback payload synchronized",
+    "syntax": "PASS - all JSON parsed and all inline JavaScript blocks compiled",
+    "cache_upgrade": "PASS - service-worker cache bumped to mhm-v10-9-3"
+  },
+  "note": "OCR evidence is labelled as requiring page-image verification before exact quotation or legal reliance."
+}

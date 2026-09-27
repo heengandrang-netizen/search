@@ -1,0 +1,34 @@
+{
+  "release": "10.9.4",
+  "date": "2026-09-27",
+  "status": "PASS",
+  "change": "Added anonymized evidence from a user-supplied registered conveyance deed",
+  "privacy": {
+    "party_names_saved": false,
+    "personal_addresses_saved": false,
+    "identity_numbers_saved": false,
+    "payment_references_saved": false,
+    "exact_apartment_number_saved": false,
+    "source_label": "MHM Registered Conveyance Deed - Anonymized Evidence"
+  },
+  "evidence_added": {
+    "curated_facts": 5,
+    "page_level_summaries": 13,
+    "topics": [
+      "Phase One and 454 apartments",
+      "Historical land-title chain",
+      "Maintenance, IFSM and repair/sinking fund",
+      "Common areas, club, parking and handover",
+      "Fire NOC renewal clause",
+      "Block B dual floor-numbering convention"
+    ]
+  },
+  "checks": {
+    "privacy_scan": "PASS - zero configured personal-name, ID and unit-number markers in resident data and embedded fallback",
+    "json_parse": "PASS",
+    "javascript_compile": "PASS",
+    "embedded_data_parity": "PASS",
+    "service_worker_cache": "PASS - mhm-v10-9-4"
+  },
+  "caution": "Document clauses are historical project-specific evidence and do not replace current official title, sanctioned-plan, handover, financial or statutory records."
+}
